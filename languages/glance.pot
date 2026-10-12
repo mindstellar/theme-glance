@@ -1,0 +1,1280 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Glance 1.0.0\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/mindstellar/theme-glance/issues\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: \n"
+
+#: 404.php:19
+msgid "Page not found - %s"
+msgstr ""
+
+#: 404.php:25
+msgid "We could not find that page"
+msgstr ""
+
+#: 404.php:26
+msgid "The ad may have sold, expired or been removed, or the link is mistyped. Search for what you were after."
+msgstr ""
+
+#: 404.php:30 404.php:31 common/header.php:46 common/header.php:50
+msgid "Search ads"
+msgstr ""
+
+#: 404.php:32 common/header.php:51
+msgid "Search"
+msgstr ""
+
+#: 404.php:36
+msgid "Browse all ads"
+msgstr ""
+
+#: 404.php:37 error.php:25
+msgid "Go to the home page"
+msgstr ""
+
+#: 404.php:41
+msgid "Browse by category"
+msgstr ""
+
+#: common/filters.php:35 common/filters.php:41 common/filters.php:115
+msgid "Filters"
+msgstr ""
+
+#: common/filters.php:39
+msgid "Filter ads"
+msgstr ""
+
+#: common/filters.php:43
+msgid "Close filters"
+msgstr ""
+
+#: common/filters.php:57 item-post.php:52 item.php:170
+msgid "Category"
+msgstr ""
+
+#: common/filters.php:59
+msgid "All categories"
+msgstr ""
+
+#: common/filters.php:68 item-post.php:96
+msgid "City"
+msgstr ""
+
+#: common/filters.php:71
+msgid "Anywhere"
+msgstr ""
+
+#: common/filters.php:77 item-post.php:75 user-items.php:78
+msgid "Price"
+msgstr ""
+
+#: common/filters.php:79
+msgid "Lowest price"
+msgstr ""
+
+#: common/filters.php:81
+msgid "Min"
+msgstr ""
+
+#: common/filters.php:83
+msgid "Highest price"
+msgstr ""
+
+#: common/filters.php:85
+msgid "Max"
+msgstr ""
+
+#: common/filters.php:94 inc/list.php:144
+msgid "With photos"
+msgstr ""
+
+#: common/filters.php:100
+msgid "Show ads"
+msgstr ""
+
+#: common/filters.php:108
+msgid "More filters"
+msgstr ""
+
+#: common/footer.php:29
+msgid "Ads"
+msgstr ""
+
+#: common/footer.php:31 inc/list.php:92 main.php:84
+msgid "All ads"
+msgstr ""
+
+#: common/footer.php:33 common/header.php:100 common/header.php:101 inc/account.php:192 item-post.php:27 main.php:101 search.php:132
+msgid "Post an ad"
+msgstr ""
+
+#: common/footer.php:35
+msgid "RSS feed"
+msgstr ""
+
+#: common/footer.php:41 common/header.php:76
+msgid "Account"
+msgstr ""
+
+#: common/footer.php:44 common/header.php:83 user-dashboard.php:31
+msgid "Dashboard"
+msgstr ""
+
+#: common/footer.php:45 common/header.php:84 inc/account.php:64 user-items.php:32
+msgid "Your ads"
+msgstr ""
+
+#: common/footer.php:46 common/header.php:88
+msgid "Log out"
+msgstr ""
+
+#: common/footer.php:48 common/header.php:94 item.php:342 search.php:125 search.php:171
+msgid "Sign in"
+msgstr ""
+
+#: common/footer.php:50
+msgid "Create an account"
+msgstr ""
+
+#: common/footer.php:58
+msgid "About"
+msgstr ""
+
+#: common/footer.php:64 error.php:26
+msgid "Contact us"
+msgstr ""
+
+#: common/footer.php:74
+msgid "Language"
+msgstr ""
+
+#: common/footer.php:81
+msgid "Go"
+msgstr ""
+
+#: common/footer.php:84
+msgid "Colour theme"
+msgstr ""
+
+#: common/footer.php:85
+msgid "Light"
+msgstr ""
+
+#: common/footer.php:86
+msgid "Auto"
+msgstr ""
+
+#: common/footer.php:87
+msgid "Dark"
+msgstr ""
+
+#: common/header.php:27
+msgid "Skip to content"
+msgstr ""
+
+#: common/header.php:50
+msgid "Search in %s"
+msgstr ""
+
+#: common/header.php:55
+msgid "Your site menu"
+msgstr ""
+
+#: common/header.php:58 common/row.php:66 item.php:62
+msgid "Saved"
+msgstr ""
+
+#: common/header.php:65
+msgid "Messages"
+msgstr ""
+
+#: common/header.php:74 inc/account.php:182
+msgid "Your account"
+msgstr ""
+
+#: common/header.php:85 inc/account.php:65 user-alerts.php:17
+msgid "Search alerts"
+msgstr ""
+
+#: common/header.php:86
+msgid "Profile"
+msgstr ""
+
+#: common/header.php:111
+msgid "Saved ads"
+msgstr ""
+
+#: common/header.php:113 inc/item.php:230 item.php:335 item.php:358 search.php:159
+msgid "Close"
+msgstr ""
+
+#: common/header.php:116
+msgid "Saved on this device only."
+msgstr ""
+
+#: common/header.php:117
+msgid "Remove from saved"
+msgstr ""
+
+#: common/header.php:118
+msgid "Nothing saved yet. Tap the heart on any ad to keep it here."
+msgstr ""
+
+#: common/pager.php:21
+msgid "Results pages"
+msgstr ""
+
+#: common/pager.php:23
+msgid "%1$s–%2$s of %3$s"
+msgstr ""
+
+#: common/pager.php:31 common/pager.php:33
+msgid "Previous"
+msgstr ""
+
+#: common/pager.php:40 common/pager.php:42
+msgid "Page"
+msgstr ""
+
+#: common/pager.php:47 common/pager.php:49
+msgid "Next"
+msgstr ""
+
+#: common/reader.php:17
+msgid "Ad reader"
+msgstr ""
+
+#: common/reader.php:22
+msgid "Close ad"
+msgstr ""
+
+#: common/reader.php:24
+msgid "Move through the results"
+msgstr ""
+
+#: common/reader.php:26 item.php:97
+msgid "Previous ad"
+msgstr ""
+
+#: common/reader.php:28
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: common/reader.php:31 item.php:100
+msgid "Next ad"
+msgstr ""
+
+#: common/reader.php:35
+msgid "Next page"
+msgstr ""
+
+#: common/reader.php:40
+msgid "Full page"
+msgstr ""
+
+#: common/reader.php:43 common/reader.php:54
+msgid "move"
+msgstr ""
+
+#: common/reader.php:44
+msgid "next ad"
+msgstr ""
+
+#: common/reader.php:45 common/reader.php:56
+msgid "Esc"
+msgstr ""
+
+#: common/reader.php:45 common/reader.php:56
+msgid "close"
+msgstr ""
+
+#: common/reader.php:51
+msgid "Pick an ad to read it here."
+msgstr ""
+
+#: common/reader.php:52
+msgid "Pick an ad to read it in full."
+msgstr ""
+
+#: common/reader.php:54
+msgid "Up arrow"
+msgstr ""
+
+#: common/reader.php:54
+msgid "Down arrow"
+msgstr ""
+
+#: common/reader.php:55
+msgid "Enter"
+msgstr ""
+
+#: common/reader.php:55
+msgid "open"
+msgstr ""
+
+#: common/reader.php:71 user-items.php:75
+msgid "Ad"
+msgstr ""
+
+#: common/reader.php:72
+msgid "Loading ad…"
+msgstr ""
+
+#: common/row.php:44 inc/account.php:413 main.php:71
+msgid "Featured"
+msgstr ""
+
+#: common/row.php:45 inc/account.php:419
+msgid "Urgent"
+msgstr ""
+
+#: common/row.php:56
+msgid "Seen"
+msgstr ""
+
+#: common/row.php:66 common/row.php:67 item.php:62 item.php:63
+msgid "Save"
+msgstr ""
+
+#: error.php:14
+msgid "Something went wrong. Please try again in a moment."
+msgstr ""
+
+#: error.php:22
+msgid "Something went wrong"
+msgstr ""
+
+#: functions.php:42
+msgid "Under the header"
+msgstr ""
+
+#: functions.php:43
+msgid "A thin strip below the header bar, on every page."
+msgstr ""
+
+#: functions.php:46
+msgid "Footer"
+msgstr ""
+
+#: functions.php:47
+msgid "Above the copyright line."
+msgstr ""
+
+#: functions.php:53
+msgid "Glance"
+msgstr ""
+
+#: functions.php:55
+msgid "Logo"
+msgstr ""
+
+#: functions.php:55
+msgid "Shown in the header instead of the site name. Keep it about 36 px tall."
+msgstr ""
+
+#: functions.php:56
+msgid "Accent colour"
+msgstr ""
+
+#: functions.php:56
+msgid "Used for buttons, links and the open ad. Dark mode uses a lighter shade of it."
+msgstr ""
+
+#: functions.php:59
+msgid "List density"
+msgstr ""
+
+#: functions.php:60
+msgid "Comfortable"
+msgstr ""
+
+#: functions.php:61
+msgid "Compact — more ads on screen"
+msgstr ""
+
+#: functions.php:62
+msgid "How tightly the ad list is packed on search and home."
+msgstr ""
+
+#: functions.php:64
+msgid "Footer note"
+msgstr ""
+
+#: functions.php:64
+msgid "One short line under the site name in the footer. Leave empty to hide it."
+msgstr ""
+
+#: inc/account.php:97
+msgid "This is how buyers see you."
+msgstr ""
+
+#: inc/account.php:98
+msgid "Back to your account"
+msgstr ""
+
+#: inc/account.php:172
+msgid "Member since %s"
+msgstr ""
+
+#: inc/account.php:178
+msgid "live ad"
+msgid_plural "live ads"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:179
+msgid "search alert"
+msgid_plural "search alerts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:219
+msgid "Blocked"
+msgstr ""
+
+#: inc/account.php:222
+msgid "Marked as spam"
+msgstr ""
+
+#: inc/account.php:225 user-dashboard.php:23 user-items.php:24
+msgid "Awaiting approval"
+msgstr ""
+
+#: inc/account.php:228 user-dashboard.php:24 user-items.php:25
+msgid "Expired"
+msgstr ""
+
+#: inc/account.php:231 user-items.php:23
+msgid "Live"
+msgstr ""
+
+#: inc/account.php:240
+msgid "No end date"
+msgstr ""
+
+#: inc/account.php:246
+msgid "Ends tomorrow"
+msgstr ""
+
+#: inc/account.php:246
+msgid "Ends in %d day"
+msgid_plural "Ends in %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:253
+msgid "Ended today"
+msgstr ""
+
+#: inc/account.php:253
+msgid "Ended %d day ago"
+msgid_plural "Ended %d days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:274
+msgid "“%s” was deleted."
+msgstr ""
+
+#: inc/account.php:275
+msgid "Alert stopped: %s."
+msgstr ""
+
+#: inc/account.php:276
+msgid "Working…"
+msgstr ""
+
+#: inc/account.php:277
+msgid "That did not work. Trying again the standard way…"
+msgstr ""
+
+#: inc/account.php:297
+msgid "Keep it"
+msgstr ""
+
+#: inc/account.php:323
+msgid "up to %s"
+msgstr ""
+
+#: inc/account.php:325
+msgid "from %s"
+msgstr ""
+
+#: inc/account.php:327
+msgid "priced %s"
+msgstr ""
+
+#: inc/account.php:331
+msgid "with photos"
+msgstr ""
+
+#: inc/account.php:334
+msgid "featured only"
+msgstr ""
+
+#: inc/account.php:337
+msgid "in %s"
+msgstr ""
+
+#: inc/account.php:341
+msgid "Every new ad"
+msgstr ""
+
+#: inc/account.php:416
+msgid "Highlighted"
+msgstr ""
+
+#: inc/account.php:426
+msgid "Posted %s"
+msgstr ""
+
+#: inc/account.php:433
+msgid "Edit"
+msgstr ""
+
+#: inc/account.php:435 item.php:52
+msgid "Delete"
+msgstr ""
+
+#: inc/account.php:443
+msgid "%d credit"
+msgid_plural "%d credits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:443
+msgid "free"
+msgstr ""
+
+#: inc/account.php:496
+msgid "view"
+msgid_plural "views"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/account.php:512
+msgid "Promote"
+msgstr ""
+
+#: inc/helpers.php:89
+msgid "today"
+msgstr ""
+
+#: inc/helpers.php:92
+msgid "yesterday"
+msgstr ""
+
+#: inc/helpers.php:95
+msgid "%d days ago"
+msgstr ""
+
+#: inc/helpers.php:98
+msgid "%d weeks ago"
+msgstr ""
+
+#: inc/helpers.php:101
+msgid "%d months ago"
+msgstr ""
+
+#: inc/helpers.php:104
+msgid "%d years ago"
+msgstr ""
+
+#: inc/item.php:41
+msgid "%1$s, photo %2$d"
+msgstr ""
+
+#: inc/item.php:121
+msgid "Yes"
+msgstr ""
+
+#: inc/item.php:160
+msgid "Active today"
+msgstr ""
+
+#: inc/item.php:163
+msgid "Active this week"
+msgstr ""
+
+#: inc/item.php:166
+msgid "Active this month"
+msgstr ""
+
+#: inc/item.php:229 item-post.php:67
+msgid "Photos"
+msgstr ""
+
+#: inc/item.php:231 item.php:135
+msgid "Previous photo"
+msgstr ""
+
+#: inc/item.php:232 item.php:136
+msgid "Next photo"
+msgstr ""
+
+#: inc/item.php:233 item.php:69
+msgid "Link copied"
+msgstr ""
+
+#: inc/item.php:234
+msgid "The map could not be loaded."
+msgstr ""
+
+#: inc/item.php:272
+msgid "The seller replies to this address."
+msgstr ""
+
+#: inc/item.php:297 item.php:65 item.php:66 item.php:355
+msgid "Leave a comment"
+msgstr ""
+
+#: inc/item.php:408 item.php:87 search.php:37
+msgid "Home"
+msgstr ""
+
+#: inc/list.php:41
+msgid "Best match"
+msgstr ""
+
+#: inc/list.php:42
+msgid "Newest first"
+msgstr ""
+
+#: inc/list.php:43
+msgid "Price: low to high"
+msgstr ""
+
+#: inc/list.php:44
+msgid "Price: high to low"
+msgstr ""
+
+#: inc/list.php:45
+msgid "Nearest first"
+msgstr ""
+
+#: inc/list.php:79
+msgid "“%1$s” in %2$s"
+msgstr ""
+
+#: inc/list.php:80
+msgid "Results for “%s”"
+msgstr ""
+
+#: inc/list.php:83
+msgid "%1$s in %2$s"
+msgstr ""
+
+#: inc/list.php:89
+msgid "Ads in %s"
+msgstr ""
+
+#: inc/list.php:115
+msgid "“%s”"
+msgstr ""
+
+#: inc/list.php:134
+msgid "Price %1$s – %2$s"
+msgstr ""
+
+#: inc/list.php:136
+msgid "Price from %s"
+msgstr ""
+
+#: inc/list.php:138
+msgid "Price up to %s"
+msgstr ""
+
+#: inc/list.php:147
+msgid "Featured only"
+msgstr ""
+
+#: inc/list.php:150
+msgid "One seller"
+msgstr ""
+
+#: inc/list.php:154
+msgid "Within %s"
+msgstr ""
+
+#: inc/post.php:28 item-post.php:75
+msgid "optional"
+msgstr ""
+
+#: item-post.php:27
+msgid "Edit your ad"
+msgstr ""
+
+#: item-post.php:30
+msgid "Changing “%s”."
+msgstr ""
+
+#: item-post.php:32
+msgid "Clear photos and exact details help buyers compare your ad with others."
+msgstr ""
+
+#: item-post.php:38
+msgid "This is required."
+msgstr ""
+
+#: item-post.php:39
+msgid "Enter a valid email address."
+msgstr ""
+
+#: item-post.php:40
+msgid "Write a little more."
+msgstr ""
+
+#: item-post.php:41
+msgid "This is over the length limit."
+msgstr ""
+
+#: item-post.php:42
+msgid "Enter a number, like 1200 or 1200.50."
+msgstr ""
+
+#: item-post.php:43
+msgid "Currency"
+msgstr ""
+
+#: item-post.php:44
+msgid "Subcategory"
+msgstr ""
+
+#: item-post.php:45
+msgid "Choose a subcategory"
+msgstr ""
+
+#: item-post.php:46
+msgid "Details for %s are ready below."
+msgstr ""
+
+#: item-post.php:47
+msgid "%s has no extra details to fill in."
+msgstr ""
+
+#: item-post.php:51
+msgid "What are you selling?"
+msgstr ""
+
+#: item-post.php:53
+msgid "Choose a category"
+msgstr ""
+
+#: item-post.php:55
+msgid "Title"
+msgstr ""
+
+#: item-post.php:57
+msgid "Lead with what it is: make, model, size."
+msgstr ""
+
+#: item-post.php:60 item-post.php:61 item.php:236
+msgid "Description"
+msgstr ""
+
+#: item-post.php:60
+msgid "Condition, history, what comes with it."
+msgstr ""
+
+#: item-post.php:67
+msgid "The first photo is the cover. Ads with photos get read far more."
+msgstr ""
+
+#: item-post.php:72 item.php:167
+msgid "Details"
+msgstr ""
+
+#: item-post.php:80
+msgid "Leave empty to show “Check with seller”."
+msgstr ""
+
+#: item-post.php:83
+msgid "Pick a category to see the details buyers compare."
+msgstr ""
+
+#: item-post.php:88
+msgid "Where is it?"
+msgstr ""
+
+#: item-post.php:90
+msgid "Country"
+msgstr ""
+
+#: item-post.php:93
+msgid "Region"
+msgstr ""
+
+#: item-post.php:100
+msgid "Street or area"
+msgstr ""
+
+#: item-post.php:105
+msgid "How buyers reach you"
+msgstr ""
+
+#: item-post.php:108
+msgid "Your name"
+msgstr ""
+
+#: item-post.php:111
+msgid "Email"
+msgstr ""
+
+#: item-post.php:113
+msgid "We send the link to manage your ad here."
+msgstr ""
+
+#: item-post.php:116
+msgid "Phone"
+msgstr ""
+
+#: item-post.php:122
+msgid "Show my email on the ad"
+msgstr ""
+
+#: item-post.php:132
+msgid "Cancel"
+msgstr ""
+
+#: item-post.php:133
+msgid "Save changes"
+msgstr ""
+
+#: item-post.php:133
+msgid "Publish ad"
+msgstr ""
+
+#: item.php:49
+msgid "Actions"
+msgstr ""
+
+#: item.php:51
+msgid "Edit ad"
+msgstr ""
+
+#: item.php:52 user-items.php:71
+msgid "Delete this ad?"
+msgstr ""
+
+#: item.php:55 item.php:321
+msgid "Contact seller"
+msgstr ""
+
+#: item.php:57
+msgid "Sign in to contact"
+msgstr ""
+
+#: item.php:66
+msgid "Comment"
+msgstr ""
+
+#: item.php:69
+msgid "Share this ad"
+msgstr ""
+
+#: item.php:85 search.php:35
+msgid "Breadcrumb"
+msgstr ""
+
+#: item.php:95
+msgid "Other ads"
+msgstr ""
+
+#: item.php:113
+msgid "This ad has expired. You can no longer contact the seller."
+msgstr ""
+
+#: item.php:114
+msgid "This ad is not live yet."
+msgstr ""
+
+#: item.php:122
+msgid "carousel"
+msgstr ""
+
+#: item.php:122
+msgid "Photos of %1$s, %2$d item"
+msgid_plural "Photos of %1$s, %2$d items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: item.php:126
+msgid "Photo %1$d of %2$d, open full size"
+msgstr ""
+
+#: item.php:143
+msgid "Show photo %d"
+msgstr ""
+
+#: item.php:160
+msgid "No photos"
+msgstr ""
+
+#: item.php:178 item.php:247
+msgid "Location"
+msgstr ""
+
+#: item.php:181
+msgid "Posted"
+msgstr ""
+
+#: item.php:196
+msgid "Member since"
+msgstr ""
+
+#: item.php:199
+msgid "1 view"
+msgstr ""
+
+#: item.php:199
+msgid "%s views"
+msgstr ""
+
+#: item.php:203
+msgid "1 other ad"
+msgstr ""
+
+#: item.php:203
+msgid "%d other ads"
+msgstr ""
+
+#: item.php:218
+msgid "Business seller"
+msgstr ""
+
+#: item.php:223
+msgid "Show phone number"
+msgstr ""
+
+#: item.php:259
+msgid "Show map"
+msgstr ""
+
+#: item.php:261
+msgid "Loads Google Maps"
+msgstr ""
+
+#: item.php:262
+msgid "Loads OpenStreetMap"
+msgstr ""
+
+#: item.php:267
+msgid "Open in Google Maps"
+msgstr ""
+
+#: item.php:267
+msgid "Open in OpenStreetMap"
+msgstr ""
+
+#: item.php:290
+msgid "Send to a friend"
+msgstr ""
+
+#: item.php:294
+msgid "Report this ad"
+msgstr ""
+
+#: item.php:300
+msgid "What is wrong with it?"
+msgstr ""
+
+#: item.php:302
+msgid "It is spam or a scam"
+msgstr ""
+
+#: item.php:303
+msgid "It is offensive"
+msgstr ""
+
+#: item.php:304
+msgid "It is in the wrong category"
+msgstr ""
+
+#: item.php:305
+msgid "It is posted more than once"
+msgstr ""
+
+#: item.php:306
+msgid "It is no longer available"
+msgstr ""
+
+#: item.php:312
+msgid "Send report"
+msgstr ""
+
+#: item.php:320
+msgid "Questions about this ad?"
+msgstr ""
+
+#: item.php:323 item.php:341
+msgid "Contact the seller"
+msgstr ""
+
+#: item.php:324
+msgid "Never pay in advance. Meet in a public place and check the item first."
+msgstr ""
+
+#: item.php:331
+msgid "Write to %s"
+msgstr ""
+
+#: item.php:332
+msgid "Write to the seller"
+msgstr ""
+
+#: item.php:342
+msgid "to write to the seller."
+msgstr ""
+
+#: item.php:349
+msgid "Comments (%d)"
+msgstr ""
+
+#: item.php:363
+msgid "Ad ID %d"
+msgstr ""
+
+#: item.php:376
+msgid "Similar ads"
+msgstr ""
+
+#: main.php:39
+msgid "Browse %s ad"
+msgid_plural "Browse %s ads"
+msgstr[0] ""
+msgstr[1] ""
+
+#: main.php:40 user-alerts.php:25
+msgid "Browse ads"
+msgstr ""
+
+#: main.php:43
+msgid "in %s categories"
+msgstr ""
+
+#: main.php:50
+msgid "Categories"
+msgstr ""
+
+#: main.php:83 user-dashboard.php:56
+msgid "Latest ads"
+msgstr ""
+
+#: main.php:94 search.php:130
+msgid "See all ads"
+msgstr ""
+
+#: main.php:98
+msgid "No ads yet"
+msgstr ""
+
+#: main.php:99
+msgid "Be the first to list something."
+msgstr ""
+
+#: maintenance.php:21
+msgid "%s is down for maintenance"
+msgstr ""
+
+#: maintenance.php:33
+msgid "We will be back soon"
+msgstr ""
+
+#: maintenance.php:34
+msgid "%s is down for a short maintenance. Please try again in a few minutes."
+msgstr ""
+
+#: page.php:24
+msgid "Last updated %s"
+msgstr ""
+
+#: search.php:54
+msgid "%s ad"
+msgid_plural "%s ads"
+msgstr[0] ""
+msgstr[1] ""
+
+#: search.php:64 search.php:70
+msgid "Sort"
+msgstr ""
+
+#: search.php:74 search.php:157
+msgid "Email me new ads"
+msgstr ""
+
+#: search.php:82
+msgid "Active filters"
+msgstr ""
+
+#: search.php:85 search.php:108
+msgid "(remove)"
+msgstr ""
+
+#: search.php:89
+msgid "Clear all"
+msgstr ""
+
+#: search.php:102
+msgid "No ads match"
+msgstr ""
+
+#: search.php:104
+msgid "Remove a filter to widen the search:"
+msgstr ""
+
+#: search.php:113
+msgid "Nothing is listed here yet."
+msgstr ""
+
+#: search.php:118
+msgid "Hear about it first"
+msgstr ""
+
+#: search.php:119
+msgid "We email you when a new ad matches this search."
+msgstr ""
+
+#: search.php:124 search.php:170
+msgid "%s to get an email when a new ad matches this search."
+msgstr ""
+
+#: search.php:164
+msgid "We email you when a new ad matches “%s”."
+msgstr ""
+
+#: user-alerts.php:20
+msgid "Each alert is a saved search. You get an email when a new ad matches it."
+msgstr ""
+
+#: user-alerts.php:23
+msgid "No search alerts yet"
+msgstr ""
+
+#: user-alerts.php:24
+msgid "Run a search, then choose “Email me new ads”."
+msgstr ""
+
+#: user-alerts.php:30
+msgid "Stop this alert?"
+msgstr ""
+
+#: user-alerts.php:31
+msgid "You will get no more emails for %s. You can save the search again at any time."
+msgstr ""
+
+#: user-alerts.php:32 user-alerts.php:42
+msgid "Stop alert"
+msgstr ""
+
+#: user-alerts.php:58
+msgid "Stopped"
+msgstr ""
+
+#: user-alerts.php:60
+msgid "Weekly email"
+msgstr ""
+
+#: user-alerts.php:60
+msgid "Daily email"
+msgstr ""
+
+#: user-alerts.php:61
+msgid "Saved %s"
+msgstr ""
+
+#: user-alerts.php:64
+msgid "Newest matches"
+msgstr ""
+
+#: user-alerts.php:75
+msgid "No ads match it right now."
+msgstr ""
+
+#: user-alerts.php:80
+msgid "See results"
+msgstr ""
+
+#: user-dashboard.php:22
+msgid "Live ad"
+msgid_plural "Live ads"
+msgstr[0] ""
+msgstr[1] ""
+
+#: user-dashboard.php:25
+msgid "Search alert"
+msgid_plural "Search alerts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: user-dashboard.php:35
+msgid "Your numbers"
+msgstr ""
+
+#: user-dashboard.php:48 user-items.php:45
+msgid "%1$s of %2$s ad slots in use"
+msgstr ""
+
+#: user-dashboard.php:58
+msgid "All %s ads"
+msgstr ""
+
+#: user-dashboard.php:63 user-items.php:60
+msgid "You have no ads yet"
+msgstr ""
+
+#: user-dashboard.php:64
+msgid "Your ads will show here with their views and end dates."
+msgstr ""
+
+#: user-dashboard.php:81
+msgid "See your public page"
+msgstr ""
+
+#: user-dashboard.php:81
+msgid "What buyers see about you"
+msgstr ""
+
+#: user-items.php:22
+msgid "All"
+msgstr ""
+
+#: user-items.php:36
+msgid "Show ads by state"
+msgstr ""
+
+#: user-items.php:60
+msgid "No ads in this state"
+msgstr ""
+
+#: user-items.php:62
+msgid "Post one and it shows here with its views and end date."
+msgstr ""
+
+#: user-items.php:63
+msgid "Ads move here as their state changes."
+msgstr ""
+
+#: user-items.php:65
+msgid "Show all ads"
+msgstr ""
+
+#: user-items.php:72
+msgid "“%s” and its photos are removed for good. Buyers can no longer open it."
+msgstr ""
+
+#: user-items.php:73
+msgid "Delete ad"
+msgstr ""
+
+#: user-items.php:76
+msgid "Views"
+msgstr ""
+
+#: user-items.php:77
+msgid "Ends"
+msgstr ""

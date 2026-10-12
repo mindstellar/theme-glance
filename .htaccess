@@ -1,0 +1,40 @@
+# Glance: browser caching and compression for theme assets (Apache).
+# Every block is optional; hosts without a module skip it.
+
+<IfModule mod_mime.c>
+    AddType font/woff2 .woff2
+    AddType image/svg+xml .svg
+</IfModule>
+
+# CSS and JS URLs carry ?v=, so a change always gets a new URL. Font files never change.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(svg|png|webp|jpe?g|gif|ico)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+<IfModule !mod_headers.c>
+    <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresByType text/css "access plus 1 year"
+        ExpiresByType text/javascript "access plus 1 year"
+        ExpiresByType application/javascript "access plus 1 year"
+        ExpiresByType font/woff2 "access plus 1 year"
+        ExpiresByType image/svg+xml "access plus 30 days"
+        ExpiresByType image/png "access plus 30 days"
+        ExpiresByType image/webp "access plus 30 days"
+    </IfModule>
+</IfModule>
+
+# Brotli where the browser accepts it, gzip otherwise.
+<IfModule mod_filter.c>
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/css text/javascript application/javascript image/svg+xml
+    </IfModule>
+    <IfModule mod_deflate.c>
+        AddOutputFilterByType DEFLATE text/css text/javascript application/javascript image/svg+xml
+    </IfModule>
+</IfModule>

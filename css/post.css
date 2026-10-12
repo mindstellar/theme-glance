@@ -1,0 +1,247 @@
+/*
+ * Glance — a Shopclass public theme.
+ * Copyright (c) 2026 Navjot Tomer (Mindstellar) and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ *
+ * Post and edit ad form. One calm column, sections separated by rules, no cards.
+ */
+
+.post-wrap { max-width: 44rem; padding-block: var(--sp-6) var(--sp-7); }
+
+.post-head { margin-bottom: var(--sp-6); }
+.post-head h1 { font-size: var(--fs-xxl); }
+.post-head p { margin: var(--sp-2) 0 0; color: var(--muted); max-width: 52ch; }
+
+/* ---- Sections ---------------------------------------------------------- */
+
+.post-section {
+    display: grid;
+    gap: var(--sp-4);
+    padding-block: var(--sp-6);
+    border-top: 1px solid var(--line);
+}
+.post-section:first-of-type { border-top: 0; padding-top: 0; }
+.post-section-head h2 { font-size: var(--fs-l); }
+.post-section-head p { margin: var(--sp-1) 0 0; color: var(--muted); font-size: var(--fs-s); }
+.post-section-body { display: grid; gap: var(--sp-4); min-width: 0; }
+
+/* ---- Category steps ---------------------------------------------------- */
+
+/* One select per level, side by side while they fit. Core's own select stays in the form, hidden. */
+.post-cat-steps { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.post-cat-native {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* ---- Details: price, then the category's own fields --------------------- */
+
+.post-details.is-empty { display: none; }
+.post-details-note { margin: 0; color: var(--muted); font-size: var(--fs-s); }
+.post-details-note[hidden] { display: none; }
+
+#plugin-hook { container-type: inline-size; display: grid; gap: var(--sp-4); min-width: 0; }
+#plugin-hook:empty { display: none; }
+#plugin-hook > * { margin: 0; min-width: 0; }
+#plugin-hook :is(.control-group, .field, p, div) { max-width: 100%; }
+#plugin-hook label { display: block; }
+
+#plugin-hook .meta_list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--sp-4); }
+#plugin-hook .meta-section { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; gap: var(--sp-4); }
+#plugin-hook .meta-section + .meta-section,
+#plugin-hook .meta + .meta-section { margin-top: var(--sp-3); }
+#plugin-hook .meta-section-title {
+    grid-column: 1 / -1;
+    margin: var(--sp-2) 0 0;
+    font-size: var(--fs-m);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+#plugin-hook .meta { min-width: 0; }
+#plugin-hook .meta > label:not(:has(input)), #plugin-hook .meta .form-label { margin-bottom: var(--sp-2); }
+#plugin-hook .meta :is(small, .form-text) { display: block; margin-top: var(--sp-2); color: var(--muted); font-size: var(--fs-xs); }
+#plugin-hook .meta input[type="number"] { font-variant-numeric: tabular-nums; }
+
+/* Long text and groups of choices read better across the full width. */
+#plugin-hook .meta:has(textarea, input[type="radio"], input[type="checkbox"], .input-group, fieldset) { grid-column: 1 / -1; }
+
+@container (min-width: 32rem) {
+    #plugin-hook .meta_list { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--sp-5); }
+}
+
+/* Core's own submit check writes its messages here. */
+.post-errors {
+    margin: 0 0 var(--sp-5);
+    padding: var(--sp-3) var(--sp-4) var(--sp-3) var(--sp-5);
+    border: 1px solid color-mix(in oklab, var(--save) 45%, var(--line));
+    border-radius: var(--radius);
+    background: color-mix(in oklab, var(--save) 8%, var(--surface));
+    color: var(--danger);
+    font-size: var(--fs-s);
+    font-weight: 500;
+}
+.post-errors:empty { display: none; }
+
+/* ---- Fields ------------------------------------------------------------ */
+
+.post-field { position: relative; min-width: 0; margin: 0; }
+.post-field > label { margin-bottom: var(--sp-2); }
+.post-opt { margin-inline-start: var(--sp-1); color: var(--muted); font-weight: 400; font-size: var(--fs-xs); }
+.post-hint { margin: var(--sp-2) 0 0; color: var(--muted); font-size: var(--fs-xs); }
+.post-count { display: block; margin-top: var(--sp-1); text-align: end; color: var(--muted); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; }
+.post-count.is-near { color: var(--warn); }
+.post-count.is-over { color: var(--danger); font-weight: 600; }
+
+.post-field :is(input, select, textarea)[aria-invalid="true"] {
+    border-color: var(--save);
+    box-shadow: 0 0 0 1px var(--save);
+}
+.post-error {
+    display: flex;
+    gap: var(--sp-2);
+    align-items: flex-start;
+    margin: var(--sp-2) 0 0;
+    color: var(--danger);
+    font-size: var(--fs-s);
+    font-weight: 500;
+}
+.post-error[hidden] { display: none; }
+.post-error .gi { width: 1rem; height: 1rem; margin-top: 0.15em; }
+
+.post-form select:disabled { opacity: 0.6; }
+
+.post-form textarea { min-height: 11rem; line-height: 1.55; }
+
+.post-grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.post-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Core hides the row around the price when a category has no price; take the label and hint with it. */
+.post-price:has(.osc-price-hidden) { display: none; }
+.post-price-row { display: flex; gap: var(--sp-3); align-items: center; max-width: 24rem; }
+.post-price-row input[type="text"] { flex: 1 1 auto; width: auto; min-width: 0; font-variant-numeric: tabular-nums; }
+.post-price-row select { flex: 0 0 6.5rem; width: 6.5rem; }
+
+.post-check { display: flex; align-items: center; gap: var(--sp-3); min-height: var(--tap); }
+.post-check label { margin: 0; font-weight: 500; }
+.post-check input { flex: none; }
+
+.post-captcha { padding-block: var(--sp-4); border-top: 1px solid var(--line); }
+
+/* ---- Photos (core's uploader, restyled) -------------------------------- */
+
+.post-form .osc-uploader { display: grid; gap: var(--sp-3); }
+.post-form .osc-uploader-grid { grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: var(--sp-3); margin: 0; }
+.post-form .osc-uploader-item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--sunk);
+}
+.post-form .osc-uploader-item.is-primary { outline: 2px solid var(--accent); outline-offset: 2px; }
+.post-form .osc-uploader-badge {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-radius: var(--radius-s);
+    font: 600 var(--fs-xs)/1.4 var(--font);
+    padding: 0.125rem 0.5rem;
+}
+.post-form .osc-uploader-remove {
+    width: 2rem;
+    height: 2rem;
+    background: var(--scrim);
+    font-size: var(--fs-brand);
+}
+.post-form .osc-uploader-remove::after { content: ""; position: absolute; inset: -0.375rem; }
+.post-form .osc-uploader-remove:hover, .post-form .osc-uploader-remove:focus-visible { background: var(--save); color: var(--accent-ink); }
+.post-form .osc-uploader-primary {
+    min-height: 1.75rem;
+    background: var(--scrim-strong);
+    font: 600 var(--fs-xs)/1 var(--font);
+    border-radius: var(--radius-s);
+}
+.post-form .osc-uploader-primary:hover, .post-form .osc-uploader-primary:focus-visible { background: var(--accent); color: var(--accent-ink); }
+.post-form .osc-uploader-progress-bar { background: var(--accent); }
+
+.post-form .osc-uploader-drop {
+    flex-direction: column;
+    gap: var(--sp-2);
+    min-height: 9rem;
+    padding: var(--sp-5);
+    border: 2px dashed var(--line-strong);
+    border-radius: var(--radius-l);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: var(--fs-s);
+    transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+.post-form .osc-uploader-drop::before {
+    content: "";
+    width: 2rem;
+    height: 2rem;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpath d='m17 8-5-5-5 5'/%3E%3Cpath d='M12 3v12'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpath d='m17 8-5-5-5 5'/%3E%3Cpath d='M12 3v12'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.post-form .osc-uploader-drop:hover { border-color: var(--accent); color: var(--ink); }
+.post-form .osc-uploader-drop:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-color: var(--accent); color: var(--ink); }
+.post-form .osc-uploader-drop.is-dragover { border-color: var(--accent); background: var(--accent-tint); color: var(--ink); }
+
+.post-form .osc-uploader-error {
+    margin: 0;
+    border: 1px solid color-mix(in oklab, var(--save) 45%, var(--line));
+    background: color-mix(in oklab, var(--save) 8%, var(--surface));
+    color: var(--danger);
+    font-size: var(--fs-s);
+}
+.post-form .osc-uploader-error-close { min-width: var(--tap); min-height: var(--tap); color: inherit; }
+
+/* ---- Submit bar -------------------------------------------------------- */
+
+.post-submit {
+    display: flex;
+    gap: var(--sp-3);
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--line);
+}
+.post-send { min-width: 10rem; }
+
+@media (max-width: 40rem) {
+    .post-wrap { padding-block: var(--sp-5) 0; }
+    .post-grid, .post-grid-3 { grid-template-columns: minmax(0, 1fr); }
+    .post-submit {
+        position: sticky;
+        bottom: 0;
+        z-index: 20;
+        margin-inline: calc(var(--gutter) * -1);
+        padding: var(--sp-3) var(--gutter) calc(var(--sp-3) + env(safe-area-inset-bottom, 0px));
+        background: color-mix(in oklab, var(--surface) 94%, transparent);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 -8px 24px -16px color-mix(in oklab, var(--ink) 30%, transparent);
+    }
+    .post-send { flex: 1; }
+}
+
+/* ---- Description editor (core's TinyMCE) --------------------------------- */
+
+.post-form .tox.tox-tinymce { border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); }
+.post-form .tox.tox-tinymce:focus-within { border-color: var(--accent); }
+.post-form .tox.tox-tinymce :is(.tox-editor-header, .tox-toolbar, .tox-toolbar__primary, .tox-toolbar__overflow, .tox-edit-area, .tox-statusbar) { background: var(--surface); }
+.post-form .tox.tox-tinymce .tox-editor-header { border-block-end: 1px solid var(--line); box-shadow: none; padding: 0; }
+.post-form .tox.tox-tinymce:not(.tox-tinymce-inline) .tox-editor-header { border-block-end: 1px solid var(--line); box-shadow: none; }
+.post-form .tox.tox-tinymce .tox-edit-area::before { border-color: var(--accent); }
+.post-form .tox.tox-tinymce .tox-edit-area__iframe { background: transparent; }
+.post-form .tox.tox-tinymce .tox-tbtn { background: transparent; color: var(--ink); }
+.post-form .tox.tox-tinymce .tox-tbtn svg { fill: currentColor; }
+.post-form .tox.tox-tinymce .tox-tbtn:hover, .post-form .tox.tox-tinymce .tox-tbtn:focus { background: var(--sunk); color: var(--ink); }
+.post-form .tox.tox-tinymce .tox-tbtn--enabled, .post-form .tox.tox-tinymce .tox-tbtn--enabled:hover { background: var(--accent-tint); color: var(--accent); }
+.post-form .tox.tox-tinymce .tox-tbtn--disabled, .post-form .tox.tox-tinymce .tox-tbtn--disabled:hover { background: none; color: var(--muted); opacity: 0.5; }
+.post-form .tox.tox-tinymce .tox-toolbar__group:not(:last-of-type) { border-color: var(--line); }
+.post-form .tox.tox-tinymce .tox-statusbar { border-block-start: 1px solid var(--line); color: var(--muted); }
+.post-form .tox.tox-tinymce .tox-statusbar :is(a, .tox-statusbar__path-item, .tox-statusbar__wordcount) { color: var(--muted); }
+.post-form .tox.tox-tinymce .tox-statusbar__resize-handle svg { fill: var(--muted); }
+

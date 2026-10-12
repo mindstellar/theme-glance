@@ -1,0 +1,45 @@
+name: Release Theme
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Build minified assets
+        run: |
+          npm install
+          npm run build
+
+      - name: Package theme
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          # Zip under a top-level glance/ dir so unzipping into oc-content/themes/ works.
+          mkdir -p dist/glance
+          rsync -a \
+            --exclude '.git' --exclude '.github' --exclude 'dist' \
+            --exclude 'node_modules' --exclude 'package.json' \
+            --exclude 'package-lock.json' --exclude 'build.mjs' --exclude '.gitignore' \
+            --include 'README.md' --exclude '*.md' \
+            ./ dist/glance/
+          ( cd dist && zip -qr "glance_${VERSION}.zip" glance )
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v3
+        with:
+          files: dist/glance_*.zip
+          name: Glance ${{ github.ref_name }}
