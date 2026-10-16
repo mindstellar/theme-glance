@@ -12,7 +12,7 @@ if (!defined('ABS_PATH')) {
     exit('Direct access is not allowed.');
 }
 
-define('GLANCE_VERSION', '1.0.0');
+define('GLANCE_VERSION', '1.0.1');
 define('GLANCE_DIR', __DIR__ . '/');
 define('GLANCE_DEFAULT_ACCENT', '#2f5bff');
 
