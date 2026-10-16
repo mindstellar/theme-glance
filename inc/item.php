@@ -366,7 +366,7 @@ function glance_related_items(int $max = 6): array
     return $items;
 }
 
-/** Product, Offer and BreadcrumbList for the current item as one JSON-LD script. */
+/** Product, Offer and BreadcrumbList for the current item as one JSON-LD script. An item with no price gets only the BreadcrumbList, because search engines reject a Product with no offer. */
 function glance_item_jsonld(array $photos, array $trail): string
 {
     $url   = osc_get_canonical() !== '' ? osc_get_canonical() : osc_item_url();
@@ -390,7 +390,7 @@ function glance_item_jsonld(array $photos, array $trail): string
     }
 
     $currency = (string) osc_item_currency();
-    if ($price !== null && is_numeric($price) && (float) $price > 0 && $currency !== '') {
+    if ($price !== null && is_numeric($price) && (float) $price >= 0 && $currency !== '') {
         $product['offers'] = array(
             '@type'         => 'Offer',
             'price'         => number_format((float) $price / 1000000, 2, '.', ''),
@@ -402,7 +402,7 @@ function glance_item_jsonld(array $photos, array $trail): string
         );
     }
 
-    $graph = array($product);
+    $graph = isset($product['offers']) ? array($product) : array();
 
     if ($trail) {
         $list = array(array('@type' => 'ListItem', 'position' => 1, 'name' => __('Home', 'glance'), 'item' => osc_base_url()));
@@ -413,6 +413,9 @@ function glance_item_jsonld(array $photos, array $trail): string
         $graph[] = array('@type' => 'BreadcrumbList', 'itemListElement' => $list);
     }
 
+    if (!$graph) {
+        return '';
+    }
     $json = json_encode(
         array('@context' => 'https://schema.org', '@graph' => $graph),
         JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP
