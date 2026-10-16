@@ -35,6 +35,7 @@ if ($glance_image === '') {
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161a24" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="<?php echo $glance_on_item ? 'product' : 'website'; ?>">
+<meta property="og:locale" content="<?php echo osc_esc_html(str_replace('-', '_', (string) osc_current_user_locale())); ?>">
 <meta property="og:site_name" content="<?php echo osc_esc_html(osc_page_title()); ?>">
 <meta property="og:title" content="<?php echo osc_esc_html($glance_on_item ? osc_item_title() : strip_tags(meta_title())); ?>">
 <?php if ($glance_desc !== '') { ?>
