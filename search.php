@@ -52,7 +52,7 @@ osc_current_web_theme_path('common/header.php');
             <h1 id="results-title"><?php echo osc_esc_html($sr_heading); ?></h1>
             <p class="results-count tnum"><?php printf(
                 osc_esc_html(_n('%s ad', '%s ads', $sr_total, 'glance')),
-                number_format($sr_total)
+                osc_esc_html(function_exists('osc_search_total_text') ? osc_search_total_text() : number_format($sr_total))
             ); ?></p>
         </div>
 

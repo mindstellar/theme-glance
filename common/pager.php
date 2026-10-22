@@ -23,7 +23,7 @@ if ($pg_total < 2) {
         osc_esc_html(__('%1$s–%2$s of %3$s', 'glance')),
         number_format((int) osc_search_start() + 1),
         number_format((int) osc_search_end()),
-        number_format((int) osc_search_total_items())
+        osc_esc_html(function_exists('osc_search_total_text') ? osc_search_total_text() : number_format((int) osc_search_total_items()))
     ); ?></p>
     <ul class="pager">
         <li class="pager-step">
