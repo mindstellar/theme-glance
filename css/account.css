@@ -685,7 +685,10 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
     display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sp-1) var(--sp-5);
     margin-block-start: var(--sp-4); font-size: var(--fs-s);
 }
-.oe-page .oe-thread-actions summary { cursor: pointer; color: var(--accent); min-height: var(--tap); display: inline-flex; align-items: center; }
+.oe-page .oe-thread-actions > .oe-row-actions { margin: 0 0 0 calc(var(--sp-2) * -1); }
+.oe-page .oe-thread-actions > .oe-row-actions > :is(form, a) { margin-inline-start: 0; }
+.oe-page .oe-thread-actions summary { cursor: pointer; color: var(--accent); min-height: var(--tap); display: inline-flex; align-items: center; font: 600 var(--fs-s)/1 var(--font); text-decoration: none; }
+.oe-page .oe-thread-actions summary:hover { color: var(--accent-hover); text-decoration: underline; }
 .oe-page .oe-thread-actions details form { margin-block-start: var(--sp-3); }
 
 @media (max-width: 40rem) {
