@@ -12,13 +12,13 @@
 Theme Name: glance
 Theme URI: https://github.com/mindstellar/theme-glance
 Description: Glance — a classifieds theme for comparing. Scan a list of ads and read each one in a side panel without losing your place.
-Version: 1.0.1
+Version: 1.1.0
 Author: Mindstellar
 Author URI: https://github.com/mindstellar
 Widgets: header, footer
 Theme update URI: glance
 Requires Shopclass: 7.0.0
-Tested up to: 7.0.0
+Tested up to: 7.1.0
 Requires PHP: 8.0
 Modes: classifieds
 */
