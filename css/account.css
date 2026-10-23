@@ -633,6 +633,63 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
 .oe-badge.failed, .oe-badge.cancelled { background: light-dark(color-mix(in oklab, var(--save) 12%, var(--surface)), color-mix(in oklab, var(--save) 22%, var(--surface))); color: var(--danger); }
 .oe-badge.refunded { background: var(--sunk); color: var(--muted); }
 
+/* ---- Messages: inbox, thread, compose, push ----------------------------- */
+
+.oe-account-nav .opt_messages { --nav-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719'/%3E%3C/svg%3E"); }
+
+.oe-page .oe-threads, .oe-page .oe-messages { list-style: none; margin: 0; padding: 0; }
+.oe-page .oe-account-main .oe-threads { display: grid; gap: var(--sp-3); }
+.oe-page .oe-account-main .oe-thread.oe-panel { max-inline-size: none; margin: 0; padding: var(--sp-4) var(--sp-5); }
+.oe-page .oe-thread-title { margin: 0; font-size: var(--fs-m); font-weight: 650; overflow-wrap: anywhere; }
+.oe-page .oe-thread-title a { color: var(--ink); text-decoration: none; }
+.oe-page .oe-thread-title a:hover { color: var(--accent); }
+.oe-page .oe-thread-last { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.oe-badge.oe-unread, .oe-page .oe-badge.oe-unread { background: var(--accent); color: var(--accent-ink); }
+
+.oe-page .oe-messages { display: flex; flex-direction: column; gap: var(--sp-3); margin: var(--sp-4) 0 var(--sp-5); }
+.oe-page .oe-message {
+    align-self: flex-start;
+    max-inline-size: min(36rem, 88%);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-l) var(--radius-l) var(--radius-l) var(--radius-s);
+}
+.oe-page .oe-message.is-mine {
+    align-self: flex-end;
+    background: var(--accent-tint);
+    border-color: color-mix(in oklab, var(--accent) 35%, var(--line));
+    border-radius: var(--radius-l) var(--radius-l) var(--radius-s) var(--radius-l);
+}
+.oe-page .oe-message.is-held { border-style: dashed; opacity: 0.85; }
+.oe-page .oe-message-body { overflow-wrap: anywhere; white-space: pre-wrap; }
+.oe-page .oe-message-meta {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-3);
+    margin: var(--sp-1) 0 0; color: var(--muted); font-size: var(--fs-xs);
+}
+
+.oe-page .oe-compose { margin-block-end: var(--sp-3); }
+.oe-page .oe-compose textarea { inline-size: 100%; max-inline-size: none; min-block-size: 5.5rem; }
+.oe-page .oe-push {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3);
+    margin-block: var(--sp-3);
+}
+.oe-page .oe-push[hidden] { display: none; }
+.oe-page .oe-push .oe-muted { margin: 0; font-size: var(--fs-s); }
+.oe-page .oe-thread-actions {
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sp-1) var(--sp-5);
+    margin-block-start: var(--sp-4); font-size: var(--fs-s);
+}
+.oe-page .oe-thread-actions summary { cursor: pointer; color: var(--accent); min-height: var(--tap); display: inline-flex; align-items: center; }
+.oe-page .oe-thread-actions details form { margin-block-start: var(--sp-3); }
+
+@media (max-width: 40rem) {
+    .oe-page .oe-message { max-inline-size: 94%; }
+    .oe-page .oe-account-main .oe-thread.oe-panel { padding: var(--sp-3) var(--sp-4); }
+    .oe-page .oe-push .oe-btn { inline-size: 100%; }
+}
+
 /* ---- Pager ------------------------------------------------------------- */
 
 .oe-page .oe-pager { justify-content: center; }

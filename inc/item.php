@@ -273,6 +273,7 @@ function glance_contact_form(): void
         'phone'      => true,
         'attachment' => (bool) osc_item_attachment(),
         'captcha'    => 'contact_seller',
+        'messaging'  => function_exists('osc_item_uses_messaging') && osc_item_uses_messaging(),
         'hooks'      => static function () {
             osc_run_hook('item_contact_form', osc_item_id());
         },

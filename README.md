@@ -44,8 +44,6 @@ Under **Appearance → Glance**:
 Added by the theme (name starting `glance_`):
 
 - `glance_item_booking` (action): output slot for a booking widget on the ad page.
-- `glance_messages_url` (filter): inbox URL. Return empty to hide messaging controls.
-- `glance_unread_count` (filter): unread message count for the header badge.
 
 Fired by the theme (core hooks):
 

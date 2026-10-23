@@ -15,7 +15,7 @@ if (!defined('ABS_PATH')) {
 $glance_logo     = glance_logo_url();
 $glance_post_url = osc_item_post_url_in_category();
 $glance_cat      = glance_search_category_id();
-$glance_messages = glance_messages_url();
+$glance_messages = glance_messaging_link();
 // On account pages the account header carries Post an ad, so the bar does not repeat it.
 $glance_band     = function_exists('glance_is_account_page') && glance_is_account_page();
 ?><!doctype html>
@@ -59,14 +59,7 @@ $glance_band     = function_exists('glance_is_account_page') && glance_is_accoun
                 <span class="nav-count" data-saved-count hidden>0</span>
             </button>
 
-            <?php if ($glance_messages !== '' && osc_is_web_user_logged_in()) { ?>
-                <a class="nav-link" href="<?php echo osc_esc_html($glance_messages); ?>">
-                    <?php echo glance_icon('message-circle'); ?>
-                    <span class="nav-label"><?php _e('Messages', 'glance'); ?></span>
-                    <?php $glance_unread = glance_unread_count(); ?>
-                    <span class="nav-count" data-unread-count <?php echo $glance_unread > 0 ? '' : 'hidden'; ?>><?php echo $glance_unread > 99 ? '99+' : $glance_unread; ?></span>
-                </a>
-            <?php } ?>
+            <?php echo $glance_messages; ?>
 
             <?php if (osc_users_enabled()) { ?>
                 <?php if (osc_is_web_user_logged_in()) { ?>

@@ -30,15 +30,14 @@ function glance_browse_all_url(): string
     return osc_search_url(array('page' => 'search'));
 }
 
-/** The inbox URL once core messaging is on; '' hides every messaging control. */
-function glance_messages_url(): string
+/** Core's Messages link for the header, or '' on a core without messaging or when it does not apply. */
+function glance_messaging_link(): string
 {
-    return (string) osc_apply_filter('glance_messages_url', '');
-}
+    if (!function_exists('osc_messaging_link')) {
+        return '';
+    }
 
-function glance_unread_count(): int
-{
-    return max(0, (int) osc_apply_filter('glance_unread_count', 0));
+    return osc_messaging_link(array('class' => 'nav-link', 'icon' => glance_icon('message-circle')));
 }
 
 /** The categories above and including $id, root first, as [id, name, url] rows. */
