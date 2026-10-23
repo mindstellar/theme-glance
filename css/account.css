@@ -167,9 +167,13 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
         scroll-snap-type: x proximity;
         scroll-padding-inline: var(--gutter);
         scrollbar-width: none;
-        mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent);
+        --fade-start: black;
+        --fade-end: black;
+        mask-image: linear-gradient(to right, var(--fade-start), black 2.5rem, black calc(100% - 2.5rem), var(--fade-end));
     }
-    [dir="rtl"] .oe-page .oe-account-nav ul { mask-image: linear-gradient(to left, black calc(100% - 2.5rem), transparent); }
+    .oe-page .oe-account-nav ul[data-more-start] { --fade-start: transparent; }
+    .oe-page .oe-account-nav ul[data-more-end] { --fade-end: transparent; }
+    [dir="rtl"] .oe-page .oe-account-nav ul { mask-image: linear-gradient(to left, var(--fade-start), black 2.5rem, black calc(100% - 2.5rem), var(--fade-end)); }
     .oe-page .oe-account-nav ul::-webkit-scrollbar { display: none; }
     .oe-page .oe-account-nav li { flex: none; scroll-snap-align: start; }
     .oe-page .oe-account-nav .opt_logout { margin: 0; padding: 0 var(--sp-6) 0 0; border: 0; }
