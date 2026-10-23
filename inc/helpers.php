@@ -30,14 +30,26 @@ function glance_browse_all_url(): string
     return osc_search_url(array('page' => 'search'));
 }
 
-/** Core's Messages link for the header, or '' on a core without messaging or when it does not apply. */
+/**
+ * Core's Messages link for the header, or '' when it does not apply. On a core without messaging the
+ * glance_messages_url and glance_unread_count filters still supply a plugin's link.
+ */
 function glance_messaging_link(): string
 {
-    if (!function_exists('osc_messaging_link')) {
-        return '';
+    if (function_exists('osc_messaging_link')) {
+        return osc_messaging_link(array('class' => 'nav-link', 'icon' => glance_icon('message-circle')));
     }
 
-    return osc_messaging_link(array('class' => 'nav-link', 'icon' => glance_icon('message-circle')));
+    $url = (string) osc_apply_filter('glance_messages_url', '');
+    if ($url === '' || !osc_is_web_user_logged_in()) {
+        return '';
+    }
+    $unread = max(0, (int) osc_apply_filter('glance_unread_count', 0));
+
+    return '<a class="nav-link" href="' . osc_esc_html($url) . '">' . glance_icon('message-circle')
+        . '<span class="nav-label">' . osc_esc_html(__('Messages', 'glance')) . '</span>'
+        . '<span class="nav-count" data-unread-count' . ($unread > 0 ? '' : ' hidden') . '>'
+        . ($unread > 99 ? '99+' : $unread) . '</span></a>';
 }
 
 /** The categories above and including $id, root first, as [id, name, url] rows. */

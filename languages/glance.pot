@@ -189,7 +189,7 @@ msgstr ""
 msgid "Saved"
 msgstr ""
 
-#: common/header.php:65
+#: inc/helpers.php:50
 msgid "Messages"
 msgstr ""
 
