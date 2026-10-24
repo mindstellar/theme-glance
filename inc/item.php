@@ -262,6 +262,11 @@ function glance_contact_block(): string
 /** Core's message form for the current item, posting to the same action core's own seller page uses. */
 function glance_contact_form(): void
 {
+    if (function_exists('osc_item_contact_form')) {
+        osc_item_contact_form();
+
+        return;
+    }
     if (!function_exists('osc_gui_kept')) {
         require_once ABS_PATH . 'oc-includes/osclass/gui/page-fn.php';
     }

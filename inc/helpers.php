@@ -30,15 +30,26 @@ function glance_browse_all_url(): string
     return osc_search_url(array('page' => 'search'));
 }
 
-/** The inbox URL once core messaging is on; '' hides every messaging control. */
-function glance_messages_url(): string
+/**
+ * Core's Messages link for the header, or '' when it does not apply. On a core without messaging the
+ * glance_messages_url and glance_unread_count filters still supply a plugin's link.
+ */
+function glance_messaging_link(): string
 {
-    return (string) osc_apply_filter('glance_messages_url', '');
-}
+    if (function_exists('osc_messaging_link')) {
+        return osc_messaging_link(array('class' => 'nav-link', 'icon' => glance_icon('message-circle')));
+    }
 
-function glance_unread_count(): int
-{
-    return max(0, (int) osc_apply_filter('glance_unread_count', 0));
+    $url = (string) osc_apply_filter('glance_messages_url', '');
+    if ($url === '' || !osc_is_web_user_logged_in()) {
+        return '';
+    }
+    $unread = max(0, (int) osc_apply_filter('glance_unread_count', 0));
+
+    return '<a class="nav-link" href="' . osc_esc_html($url) . '">' . glance_icon('message-circle')
+        . '<span class="nav-label">' . osc_esc_html(__('Messages', 'glance')) . '</span>'
+        . '<span class="nav-count" data-unread-count' . ($unread > 0 ? '' : ' hidden') . '>'
+        . ($unread > 99 ? '99+' : $unread) . '</span></a>';
 }
 
 /** The categories above and including $id, root first, as [id, name, url] rows. */

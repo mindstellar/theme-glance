@@ -18,7 +18,7 @@ function glance_is_core_page(): bool
     $location = (string) osc_get_osclass_location();
     $section  = (string) osc_get_osclass_section();
 
-    if (in_array($location, array('user', 'login', 'register', 'custom', 'contact', 'billing'), true)) {
+    if (in_array($location, array('user', 'login', 'register', 'custom', 'contact', 'billing', 'messages'), true)) {
         return true;
     }
 
@@ -44,7 +44,7 @@ function glance_is_account_page(): bool
     $location = (string) osc_get_osclass_location();
     $section  = (string) osc_get_osclass_section();
 
-    if ($location === 'billing') {
+    if ($location === 'billing' || $location === 'messages') {
         return true;
     }
     if ($location === 'custom') {

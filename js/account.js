@@ -46,13 +46,24 @@
         return res;
     }
 
-    /* Scroll the current tab into view on the phone tab strip, without moving the page. */
+    /* Scroll the current tab into view on the phone tab strip, without moving the page. The strip
+       fades at each end that has hidden tabs (data-more-start, data-more-end). */
     function revealCurrentTab() {
         document.querySelectorAll('.oe-account-nav ul, .oe-tabs').forEach((list) => {
+            const ends = () => {
+                const max = list.scrollWidth - list.clientWidth;
+                const at = Math.abs(list.scrollLeft);
+                list.toggleAttribute('data-more-start', max > 1 && at > 1);
+                list.toggleAttribute('data-more-end', max > 1 && at < max - 1);
+            };
+            list.addEventListener('scroll', ends, { passive: true });
+            window.addEventListener('resize', ends);
             const here = list.querySelector('[aria-current]');
-            if (!here || list.scrollWidth <= list.clientWidth) return;
-            const item = here.closest('li') || here;
-            list.scrollLeft = item.offsetLeft - list.offsetLeft - (list.clientWidth - item.offsetWidth) / 2;
+            if (here && list.scrollWidth > list.clientWidth) {
+                const item = here.closest('li') || here;
+                list.scrollLeft = item.offsetLeft - list.offsetLeft - (list.clientWidth - item.offsetWidth) / 2;
+            }
+            ends();
         });
     }
 
