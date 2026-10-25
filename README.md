@@ -1,68 +1,54 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/glance-logo-dark.svg">
-  <img src="assets/brand/glance-logo.svg" alt="Glance" width="240">
-</picture>
-
 # Glance
 
-A Classifieds-only theme for comparing. Scan a list of ads and read each one in a side panel without losing your place.
+A classifieds theme for comparing ads. You scan the list and read each ad in a side panel without losing your place.
 
 ## Requirements
 
 - Shopclass 7.0.0 or later
 - PHP 8.0 or later
+- No plugins needed.
 
 ## Install
 
-- Upload the release zip under **Settings → Appearance**, or
-- Put this folder at `oc-content/themes/glance`.
+1. Download `glance_X.Y.Z.zip` from the [releases](https://github.com/mindstellar/theme-glance/releases).
+2. Go to **Appearance → Manage themes** and upload the zip.
+3. Click **Activate**.
 
-Then activate Glance under **Settings → Appearance**.
+Or put this folder at `oc-content/themes/glance`.
 
-## Settings
+## Set up
 
-Under **Appearance → Glance**:
-
-- Logo (about 36 px tall)
-- Accent colour
-- List density: comfortable or compact
-- Footer note
+1. Go to **Appearance → Glance**:
+   - **Logo**: about 36 px tall. Without a logo the site name shows.
+   - **Accent colour**: for buttons, links and the open ad. Dark mode uses a lighter shade.
+   - **List density**: Comfortable or Compact.
+   - **Footer note**: one line under the site name. Leave it empty to hide it.
+2. Go to **Appearance → Manage widgets** to fill the **Under the header** and **Footer** areas.
 
 ## Features
 
-- Ad list with a reading panel. Arrow keys move, Enter opens, Esc closes. Each ad keeps its real URL.
-- Phone: each ad opens in a bottom sheet.
+- Ad list with a reading panel. Arrow keys move, Enter opens, Esc closes. Each ad keeps its own URL.
+- On a phone, each ad opens in a bottom sheet.
 - Works without JavaScript.
 - Saved ads are kept on the device.
 - Light, dark or auto colour scheme.
-- Self-hosted font.
 - JSON-LD on ad pages.
-- Minified CSS and JS in releases.
 
-## Hooks and filters
+## Customising
 
-Added by the theme (name starting `glance_`):
+The theme owns its CSS in `css/`. Use a child theme or edit those files.
 
-- `glance_item_booking` (action): output slot for a booking widget on the ad page.
-- `glance_messages_url` (filter): inbox URL on a core without messaging. Return empty to hide the link.
-- `glance_unread_count` (filter): unread count for that link's badge.
+## For developers
 
-Fired by the theme (core hooks):
-
-- `search_form`: extra search form fields.
-- `search_ads_listing_top`: top of home and search results.
-- `search_ads_listing_medium`: between search results, every 6 ads.
-- `home_before_listings`, `home_after_listings`: around the home list.
-- `item_sidebar`: ad page sidebar.
-- `item_meta`: ad page meta.
-- `item_detail`: ad page body.
-- `item_before_related`, `item_after_related`: around related ads.
-- `item_contact_form`: inside the seller contact form.
-- `footer`: footer area.
-
-## Server tips
-
-On Apache, the theme's `.htaccess` turns on long caching and compression for its CSS, JS and fonts. Nginx ignores it; add this to your `server` block instead:
+- Hooks added by the theme:
+  - `glance_item_booking` (action): a slot for a booking widget on the ad page.
+  - `glance_messages_url` (filter): inbox link on a core without messaging. Return empty to hide it.
+  - `glance_unread_count` (filter): unread count for that link.
+- Core hooks fired: `search_form`, `search_ads_listing_top`, `search_ads_listing_medium` (every 6 ads), `home_before_featured`, `home_after_featured`, `home_before_listings`, `home_after_listings`, `item_sidebar`, `item_meta`, `item_detail`, `item_before_related`, `item_after_related`, `item_contact_form`, `footer`.
+- Build: `npm install`, then `npm run build` for the minified CSS and JS.
+- A `vX.Y.Z` tag runs the release workflow and publishes `glance_X.Y.Z.zip`.
+- Strings use the text domain `glance`. The template is `languages/glance.pot`.
+- On Apache, the theme's `.htaccess` sets long caching and compression. On Nginx, add this to your `server` block:
 
 ```nginx
 gzip on;
@@ -73,19 +59,10 @@ location ~* ^/oc-content/themes/glance/.+\.(css|js|woff2|svg|png|webp)$ {
 }
 ```
 
-## Development
+## Support
 
-```bash
-npm install
-npm run build
-```
+Report problems at [github.com/mindstellar/theme-glance/issues](https://github.com/mindstellar/theme-glance/issues).
 
-Release: push a `vX.Y.Z` tag. The workflow builds the minified assets and publishes `glance_X.Y.Z.zip`.
+## License
 
-Translation template: `languages/glance.pot` (domain `glance`).
-
-## Licence
-
-- Theme: GPL-3.0-or-later. See `LICENSE`.
-- Font: Schibsted Grotesk, SIL Open Font Licence 1.1. See `fonts/OFL.txt`.
-- Icons: Lucide, ISC licence.
+GPL-3.0-or-later. See `LICENSE`. The font, Schibsted Grotesk, is under the SIL Open Font Licence 1.1 (`fonts/OFL.txt`). The icons, from Lucide, are under the ISC licence.
