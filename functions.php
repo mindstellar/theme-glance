@@ -67,8 +67,8 @@ function glance_init(): void
                 ->default('comfortable')
             ->text('footer_note', __('Footer note', 'glance'), __('One short line under the site name in the footer. Leave empty to hide it.', 'glance'))
             ->checkbox('home_map', __('Home page map', 'glance'), $map
-                ? __('A map of listings above the latest ads. It shows only when distance search is on and listings have a map point.', 'glance')
-                : __('Needs the Map search plugin. Install and activate it to use this.', 'glance'))
+                ? __('Uses the Map search plugin. A map of listings above the latest ads. It shows only when distance search is on and listings have a map point.', 'glance')
+                : __('Needs the Map search plugin. Install and activate it under Plugins to use this.', 'glance'))
                 ->default(0)
                 ->attrs(array('disabled' => !$map))
             ->register();

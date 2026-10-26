@@ -414,11 +414,11 @@ msgid "Home page map"
 msgstr ""
 
 #: functions.php:70
-msgid "A map of listings above the latest ads. It shows only when distance search is on and listings have a map point."
+msgid "Uses the Map search plugin. A map of listings above the latest ads. It shows only when distance search is on and listings have a map point."
 msgstr ""
 
 #: functions.php:71
-msgid "Needs the Map search plugin. Install and activate it to use this."
+msgid "Needs the Map search plugin. Install and activate it under Plugins to use this."
 msgstr ""
 
 #: inc/account.php:97
