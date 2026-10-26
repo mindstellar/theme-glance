@@ -508,6 +508,14 @@
         open(link.href, { row: rows.includes(row) ? row : null, id: link.dataset.itemLink, from: link });
     });
 
+    /* A pin on the Map search plugin's map opens its ad here instead of the map's own card. */
+    document.addEventListener('map-search:pin', (e) => {
+        const url = e.detail && e.detail.url;
+        if (!url || new URL(url, location.href).origin !== location.origin) return;
+        e.preventDefault();
+        open(url, { id: String(e.detail.id || '') });
+    });
+
     inner.querySelector('[data-reader-close]').addEventListener('click', close);
     prevBtn.addEventListener('click', () => step(-1));
     nextBtn.addEventListener('click', () => step(1));
