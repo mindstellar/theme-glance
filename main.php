@@ -79,6 +79,8 @@ osc_current_web_theme_path('common/header.php');
 
         <?php osc_run_hook('home_before_listings'); ?>
 
+        <?php glance_home_map(); ?>
+
         <div class="list-heading-row">
             <h2 class="list-heading" id="home-latest"><?php _e('Latest ads', 'glance'); ?></h2>
             <a class="list-more" href="<?php echo osc_esc_html(glance_browse_all_url()); ?>"><?php _e('All ads', 'glance'); ?><?php echo glance_icon('arrow-right'); ?></a>

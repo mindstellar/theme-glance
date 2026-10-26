@@ -52,6 +52,7 @@ function glance_init(): void
     ));
 
     if (defined('OC_ADMIN') && OC_ADMIN === true) {
+        $map = function_exists('map_search_render');
         (new \mindstellar\admin\ui\FormSpec('glance'))
             ->title(__('Glance', 'glance'))
             ->menu('appearance')
@@ -65,6 +66,11 @@ function glance_init(): void
             ), __('How tightly the ad list is packed on search and home.', 'glance'))
                 ->default('comfortable')
             ->text('footer_note', __('Footer note', 'glance'), __('One short line under the site name in the footer. Leave empty to hide it.', 'glance'))
+            ->checkbox('home_map', __('Home page map', 'glance'), $map
+                ? __('A map of listings above the latest ads. It shows only when distance search is on and listings have a map point.', 'glance')
+                : __('Needs the Map search plugin. Install and activate it to use this.', 'glance'))
+                ->default(0)
+                ->attrs(array('disabled' => !$map))
             ->register();
     }
 }
@@ -98,6 +104,14 @@ function glance_accent_style(): string
 function glance_list_density(): string
 {
     return glance_setting('density', 'comfortable') === 'compact' ? 'compact' : 'comfortable';
+}
+
+/** The Map search plugin's map on the home page, when the owner turned it on. Prints nothing otherwise. */
+function glance_home_map(): void
+{
+    if (function_exists('map_search_render') && !empty(glance_setting('home_map', ''))) {
+        map_search_render(array('class' => 'glance-home-map'));
+    }
 }
 
 /** True when list.js fetches an ad to show it in the panel. */

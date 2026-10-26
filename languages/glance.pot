@@ -409,6 +409,18 @@ msgstr ""
 msgid "One short line under the site name in the footer. Leave empty to hide it."
 msgstr ""
 
+#: functions.php:69
+msgid "Home page map"
+msgstr ""
+
+#: functions.php:70
+msgid "A map of listings above the latest ads. It shows only when distance search is on and listings have a map point."
+msgstr ""
+
+#: functions.php:71
+msgid "Needs the Map search plugin. Install and activate it to use this."
+msgstr ""
+
 #: inc/account.php:97
 msgid "This is how buyers see you."
 msgstr ""

@@ -6,7 +6,7 @@ A classifieds theme for comparing ads. You scan the list and read each ad in a s
 
 - Shopclass 7.0.0 or later
 - PHP 8.0 or later
-- No plugins needed.
+- No plugins needed. The home page map needs the Map search plugin (Shopclass 7.1).
 
 ## Install
 
@@ -23,6 +23,7 @@ Or put this folder at `oc-content/themes/glance`.
    - **Accent colour**: for buttons, links and the open ad. Dark mode uses a lighter shade.
    - **List density**: Comfortable or Compact.
    - **Footer note**: one line under the site name. Leave it empty to hide it.
+   - **Home page map**: a map of listings above the latest ads. Needs the Map search plugin, distance search on and listings with a map point.
 2. Go to **Appearance → Manage widgets** to fill the **Under the header** and **Footer** areas.
 
 ## Features
@@ -33,6 +34,7 @@ Or put this folder at `oc-content/themes/glance`.
 - Saved ads are kept on the device.
 - Light, dark or auto colour scheme.
 - JSON-LD on ad pages.
+- With the Map search plugin, a pin on the map opens its ad in the reading panel.
 
 ## Customising
 
