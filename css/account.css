@@ -869,7 +869,7 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
     border-block-start: 1px solid var(--line);
 }
 .oe-bill-actions .oe-bill-btn { margin: 0; }
-.oe-page .oe-account-main .oe-bill .oe-bill-empty { margin: 0; padding: var(--sp-4) 0; border: 0; border-block: 1px solid var(--line); border-radius: 0; background: none; color: var(--muted); font-size: var(--fs-s); text-align: start; }
+.oe-page .oe-account-main .oe-bill .oe-empty { margin: 0; padding: var(--sp-4) 0; border: 0; border-block: 1px solid var(--line); border-radius: 0; background: none; color: var(--muted); font-size: var(--fs-s); text-align: start; }
 
 .oe-bill fieldset { margin: 0 0 var(--sp-5); padding: 0; border: 0; min-inline-size: 0; }
 .oe-bill legend { margin: 0 0 var(--sp-3); padding: 0; font-size: var(--fs-l); font-weight: 700; }
@@ -892,8 +892,8 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
 .oe-bill-btn { margin-block-start: var(--sp-2); }
 
 .oe-scroll { overflow-x: auto; }
-.oe-table th, .oe-bill th { white-space: nowrap; }
-.oe-num, .oe-bill-num { text-align: end; font-variant-numeric: tabular-nums lining-nums; }
+.oe-table th { white-space: nowrap; }
+.oe-num { text-align: end; font-variant-numeric: tabular-nums lining-nums; }
 .oe-bill-pager { margin-block-start: var(--sp-4); }
 
 @media (max-width: 40rem) {
