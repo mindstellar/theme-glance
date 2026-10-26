@@ -33,6 +33,9 @@ osc_add_theme_support('chrome', array(
 
 osc_add_theme_support('head');
 
+// Glance styles core's pages and comments block itself.
+osc_add_theme_support('core-styles', false);
+
 osc_add_filter('scripts_defer', static fn() => true);
 
 function glance_init(): void

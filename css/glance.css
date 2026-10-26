@@ -182,7 +182,7 @@ main { flex: 1 0 auto; }
 
 /* ---- Controls ---------------------------------------------------------- */
 
-.btn, .oe-btn {
+.btn, .oe-btn, .oe-actions a.oe-secondary {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +199,7 @@ main { flex: 1 0 auto; }
     cursor: pointer;
     transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
-.btn:hover, .oe-btn:hover { border-color: var(--ink); }
+.btn:hover, .oe-btn:hover, .oe-actions a.oe-secondary:hover { border-color: var(--ink); }
 .btn:disabled, .oe-btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
 
 .btn-primary, .oe-btn-primary,
@@ -703,6 +703,17 @@ th { font-size: var(--fs-xs); font-weight: 600; color: var(--muted); }
 .oe-comment-form label { font-size: var(--fs-s); font-weight: 600; }
 .oe-comment-optional { color: var(--muted); font-weight: 400; opacity: 1; }
 .oe-comment-form input, .oe-comment-form textarea { border-color: var(--line-strong); }
+.oe-comments-pager { margin-block-start: var(--sp-4); }
+.oe-comment-rating { margin: var(--sp-1) 0 0; letter-spacing: 0.1em; color: var(--warn); }
+.oe-rating { min-inline-size: 0; margin: 0; padding: 0; border: 0; }
+.oe-rating legend { margin-bottom: var(--sp-1); padding: 0; font-size: var(--fs-s); font-weight: 600; }
+.oe-rating-stars { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: var(--sp-1); }
+.oe-rating-stars input { position: absolute; width: 1px; height: 1px; margin: 0; opacity: 0; }
+.oe-rating-stars label { display: inline-flex; margin: 0; line-height: 1; color: var(--line-strong); cursor: pointer; }
+.oe-rating-star { font-size: 1.5rem; }
+.oe-rating-stars input:checked ~ label, .oe-rating-stars label:hover, .oe-rating-stars label:hover ~ label { color: var(--warn); }
+.oe-rating-stars input:focus-visible + label { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: var(--radius-s); }
+.oe-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* ---- Save-this-search field (also drawn on the search page) ------------ */
 

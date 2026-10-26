@@ -759,6 +759,12 @@ body:has(.oe-account-main .osc-user-delete-account) .glance-band-post {
 .oe-page #error_list:not(:empty) { list-style: disc; padding-inline-start: var(--sp-6); }
 .oe-page #error_list:empty { display: none; }
 
+.oe-page .oe-muted { font-size: var(--fs-s); }
+.oe-page .oe-field-error { color: var(--danger); }
+.oe-page .oe-address-lines { margin: var(--sp-1) 0 0; overflow-wrap: anywhere; }
+.oe-page .oe-address h2 .oe-badge { margin-inline-start: var(--sp-2); vertical-align: middle; }
+.oe-page .oe-contact-open { white-space: nowrap; }
+
 .oe-page .oe-actions { gap: var(--sp-3) var(--sp-4); margin-block-start: var(--sp-5); }
 .oe-page .oe-actions a:not(.oe-btn) { display: inline-flex; align-items: center; min-height: var(--tap); }
 .oe-page .oe-btn { text-decoration: none; }
