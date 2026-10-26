@@ -788,8 +788,8 @@ kbd .gi { width: 0.875rem; height: 0.875rem; }
 
 /* ---- Map search plugin's map (search, and home when turned on) -------------- */
 
-/* The id in :not() lifts these over the plugin's own dark rules. Pin colours are read by the map
-   script, which needs plain colour values, so they are hex here and not light-dark() tokens. */
+/* The id in :not() lifts these over the plugin's own dark rules. The map script reads the pin
+   colours and re-reads them when the scheme changes, so they follow the light-dark() tokens. */
 :root:not(#_) .map-search {
     --map-search-radius: var(--radius-l);
     --map-search-border: var(--line);
@@ -799,25 +799,11 @@ kbd .gi { width: 0.875rem; height: 0.875rem; }
     --map-search-button-bg: var(--surface);
     --map-search-button-fg: var(--ink);
     --map-search-focus: var(--focus);
-    --map-search-pin: var(--accent-base);
-    --map-search-cluster: #0E1424;
-    --map-search-cluster-text: #FFFFFF;
-    --map-search-ring: #FFFFFF;
+    --map-search-pin: var(--accent);
+    --map-search-cluster: var(--ink);
+    --map-search-cluster-text: var(--paper);
+    --map-search-ring: var(--surface);
     font-family: var(--font);
-}
-@media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]):not(#_) .map-search {
-        --map-search-pin: #8FA6FF;
-        --map-search-cluster: #E8EBF2;
-        --map-search-cluster-text: #0D1018;
-        --map-search-ring: #161A24;
-    }
-}
-:root[data-theme="dark"]:not(#_) .map-search {
-    --map-search-pin: #8FA6FF;
-    --map-search-cluster: #E8EBF2;
-    --map-search-cluster-text: #0D1018;
-    --map-search-ring: #161A24;
 }
 .map-search .map-search-area { font-size: var(--fs-s); box-shadow: var(--shadow-lift); }
 .map-search .map-search-status { font-size: var(--fs-xs); }
