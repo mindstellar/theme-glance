@@ -204,3 +204,39 @@ function glance_widget_zone(string $location, string $class): void
         echo '<div class="' . osc_esc_html($class) . '"><div class="wrap">' . $html . '</div></div>';
     }
 }
+
+/**
+ * The "Full width" page template: the theme's own page.php without the narrow reading column.
+ * The id is shared by our themes, so a page keeps the template when the site changes theme.
+ */
+function glance_page_templates(): void
+{
+    if (function_exists('osc_register_page_template')) {
+        osc_register_page_template('theme.full_width', array(
+            'label'       => __('Full width', 'glance'),
+            'description' => __('The page uses the whole width of the content area.', 'glance'),
+            'render'      => 'page.php',
+        ));
+    }
+}
+
+osc_add_hook('init', 'glance_page_templates');
+
+/** Whether the current static page uses the Full width template. */
+function glance_is_full_width(): bool
+{
+    if (!osc_is_static_page()) {
+        return false;
+    }
+    $meta = json_decode((string) osc_static_page_field('s_meta'), true);
+
+    return is_array($meta) && ($meta['template'] ?? '') === 'theme.full_width';
+}
+
+osc_add_filter('body_class', static function ($classes) {
+    if (glance_is_full_width()) {
+        $classes[] = 'layout-full-width';
+    }
+
+    return $classes;
+});

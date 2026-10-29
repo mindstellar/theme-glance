@@ -1156,6 +1156,7 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
 /* ---- Static page ------------------------------------------------------- */
 
 .glance-page { max-width: 70ch; padding-block: var(--sp-6) var(--sp-5); }
+.layout-full-width .glance-page { max-width: none; }
 .glance-page h1 { margin-block-end: var(--sp-5); font-size: var(--fs-xxl); }
 .glance-page .prose { max-width: none; }
 .glance-page .prose > :first-child { margin-block-start: 0; }

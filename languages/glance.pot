@@ -421,6 +421,14 @@ msgstr ""
 msgid "Needs the Map search plugin. Install and activate it under Plugins to use this."
 msgstr ""
 
+#: functions.php:216
+msgid "Full width"
+msgstr ""
+
+#: functions.php:217
+msgid "The page uses the whole width of the content area."
+msgstr ""
+
 #: inc/account.php:97
 msgid "This is how buyers see you."
 msgstr ""
