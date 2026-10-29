@@ -1040,7 +1040,7 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
     color: var(--ink);
     box-shadow: var(--shadow-lift);
 }
-.oe-dialog[data-osc-dialog-ready] { inline-size: min(34rem, calc(100% - 2 * var(--gutter))); max-block-size: calc(100dvh - 2 * var(--sp-5)); overflow: auto; }
+.oe-dialog[data-osc-dialog-ready] { inline-size: min(26rem, calc(100% - 2 * var(--gutter))); max-block-size: calc(100dvh - 2 * var(--sp-5)); overflow: auto; }
 .oe-dialog::backdrop { background: var(--scrim); }
 .oe-page .oe-dialog:not([data-osc-dialog-ready]) {
     display: block;
@@ -1068,6 +1068,15 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
 .oe-dialog-close:hover { background: var(--sunk); }
 .oe-dialog-body { padding: var(--sp-5); }
 .oe-dialog-body .oe-actions { margin-block-start: var(--sp-4); }
+.oe-dialog-body form { margin: 0; }
+.oe-dialog-body > p { margin: 0 0 var(--sp-3); color: var(--muted); font-size: var(--fs-s); }
+.oe-dialog-body fieldset { display: grid; gap: var(--sp-2); margin: 0 0 var(--sp-4); padding: 0; border: 0; min-inline-size: 0; }
+.oe-dialog-body legend { margin-block-end: var(--sp-2); padding: 0; font-size: var(--fs-s); font-weight: 600; }
+.oe-page .oe-dialog-body .oe-check { display: flex; align-items: center; gap: var(--sp-3); inline-size: 100%; min-block-size: var(--tap); margin: 0; padding: var(--sp-2) var(--sp-3); border: 1px solid var(--line); border-radius: var(--radius); font-size: var(--fs-s); font-weight: 600; cursor: pointer; }
+.oe-page .oe-dialog-body .oe-check:hover { background: var(--sunk); }
+.oe-page .oe-dialog-body .oe-check:has(input:checked) { border-color: var(--accent); background: var(--accent-tint); }
+.oe-dialog-body .oe-check input { margin: 0; }
+.oe-dialog-body .oe-actions { justify-content: flex-end; margin: 0; }
 
 /* ---- Credits (wallet, buy, orders) ------------------------------------- */
 
