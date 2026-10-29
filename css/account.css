@@ -1041,7 +1041,7 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
     color: var(--ink);
     box-shadow: var(--shadow-lift);
 }
-.oe-dialog[data-osc-dialog-ready] { inline-size: min(26rem, calc(100% - 2 * var(--gutter))); max-block-size: calc(100dvh - 2 * var(--sp-5)); overflow: auto; }
+.oe-dialog[data-osc-dialog-ready] { inline-size: min(26rem, calc(100% - 2 * var(--gutter))); max-block-size: calc(100vh - 2 * var(--sp-5)); max-block-size: calc(100dvh - 2 * var(--sp-5)); overflow: auto; }
 .oe-dialog::backdrop { background: var(--scrim); }
 .oe-page .oe-dialog:not([data-osc-dialog-ready]) {
     display: block;
