@@ -729,7 +729,7 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
 .oe-thread-link:hover > .oe-thread-initial { box-shadow: 0 0 0 2px var(--sunk); }
 .oe-thread.is-current .oe-thread-link > .oe-thread-initial { box-shadow: 0 0 0 2px var(--accent-tint); }
 .oe-thread-name { grid-column: 2; grid-row: 1; min-inline-size: 0; font-size: var(--fs-row); font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.oe-thread-time { grid-column: 3; grid-row: 1; justify-self: end; color: var(--muted); font-size: var(--fs-xs); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.oe-thread-time { grid-column: 3; grid-row: 1; justify-self: end; color: var(--muted); font-size: var(--fs-xs); font-variant-numeric: normal; white-space: nowrap; }
 .oe-messenger .oe-thread-title { grid-column: 2 / 4; grid-row: 2; margin: 0; color: var(--muted); font-size: var(--fs-s); font-weight: 400; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .oe-thread-preview { grid-column: 2; grid-row: 3; min-inline-size: 0; color: var(--muted); font-size: var(--fs-s); line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .oe-thread-preview.is-typing { color: var(--accent); font-weight: 650; }
