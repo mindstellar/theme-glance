@@ -185,6 +185,24 @@
         });
     });
 
+    // The saved header menu scrolls sideways: show the current link, and mark each end with more links past it.
+    document.querySelectorAll('.glance-menu .wrap').forEach((strip) => {
+        const current = strip.querySelector('[aria-current]');
+        if (current && strip.scrollWidth > strip.clientWidth) {
+            const a = current.getBoundingClientRect();
+            const s = strip.getBoundingClientRect();
+            strip.scrollLeft += (a.left - s.left) - (s.width - a.width) / 2;
+        }
+        const mark = () => {
+            const left = Math.abs(strip.scrollLeft);
+            strip.toggleAttribute('data-more', strip.scrollWidth - strip.clientWidth - left > 4);
+            strip.toggleAttribute('data-more-start', left > 4);
+        };
+        mark();
+        strip.addEventListener('scroll', mark, { passive: true });
+        window.addEventListener('resize', mark);
+    });
+
     // After a reload on a panel URL, Back lands on a list state this document never drew.
     window.addEventListener('popstate', (e) => {
         if (e.state && e.state.glanceList && !document.querySelector('[data-reader]')) location.reload();

@@ -10,6 +10,21 @@ if (!defined('ABS_PATH')) {
 }
 
 $glance_note = trim((string) glance_setting('footer_note'));
+// A link the saved footer menu already shows is not repeated in the other columns.
+$glance_footer_menu = glance_saved_menu('footer');
+$glance_taken = array();
+foreach ($glance_footer_menu['items'] ?? array() as $glance_link) {
+    $glance_taken[glance_url_key((string) $glance_link['url'])] = true;
+}
+$glance_link_shown = static fn(string $url): bool => !isset($glance_taken[glance_url_key($url)]);
+osc_reset_static_pages();
+$glance_pages = array();
+while (osc_has_static_pages()) {
+    if ($glance_link_shown(osc_static_page_url())) {
+        $glance_pages[] = array(osc_static_page_url(), osc_static_page_title());
+    }
+}
+$glance_contact_shown = $glance_link_shown(osc_contact_url());
 ?>
 </main>
 
@@ -29,14 +44,13 @@ $glance_note = trim((string) glance_setting('footer_note'));
             <h2 id="glance-f-ads"><?php _e('Ads', 'glance'); ?></h2>
             <ul>
                 <li><a href="<?php echo osc_esc_html(glance_browse_all_url()); ?>"><?php _e('All ads', 'glance'); ?></a></li>
-                <?php if (osc_item_post_url_in_category() !== '') { ?>
+                <?php if (osc_item_post_url_in_category() !== '' && $glance_link_shown(osc_item_post_url_in_category())) { ?>
                     <li><a href="<?php echo osc_esc_html(osc_item_post_url_in_category()); ?>"><?php _e('Post an ad', 'glance'); ?></a></li>
                 <?php } ?>
                 <li><a href="<?php echo osc_esc_html(osc_search_url(array('sFeed' => 'rss'))); ?>"><?php _e('RSS feed', 'glance'); ?></a></li>
             </ul>
         </nav>
 
-        <?php $glance_footer_menu = glance_saved_menu('footer'); ?>
         <?php if ($glance_footer_menu !== null) { ?>
             <nav aria-labelledby="glance-f-menu">
                 <h2 id="glance-f-menu"><?php echo osc_esc_html($glance_footer_menu['label'] !== '' ? $glance_footer_menu['label'] : __('Links', 'glance')); ?></h2>
@@ -66,16 +80,19 @@ $glance_note = trim((string) glance_setting('footer_note'));
             </nav>
         <?php } ?>
 
-        <nav aria-labelledby="glance-f-site">
-            <h2 id="glance-f-site"><?php _e('About', 'glance'); ?></h2>
-            <ul>
-                <?php osc_reset_static_pages(); ?>
-                <?php while (osc_has_static_pages()) { ?>
-                    <li><a href="<?php echo osc_esc_html(osc_static_page_url()); ?>"><?php echo osc_esc_html(osc_static_page_title()); ?></a></li>
-                <?php } ?>
-                <li><a href="<?php echo osc_esc_html(osc_contact_url()); ?>"><?php _e('Contact us', 'glance'); ?></a></li>
-            </ul>
-        </nav>
+        <?php if ($glance_pages !== array() || $glance_contact_shown) { ?>
+            <nav aria-labelledby="glance-f-site">
+                <h2 id="glance-f-site"><?php _e('About', 'glance'); ?></h2>
+                <ul>
+                    <?php foreach ($glance_pages as $glance_page) { ?>
+                        <li><a href="<?php echo osc_esc_html($glance_page[0]); ?>"><?php echo osc_esc_html($glance_page[1]); ?></a></li>
+                    <?php } ?>
+                    <?php if ($glance_contact_shown) { ?>
+                        <li><a href="<?php echo osc_esc_html(osc_contact_url()); ?>"><?php _e('Contact us', 'glance'); ?></a></li>
+                    <?php } ?>
+                </ul>
+            </nav>
+        <?php } ?>
     </div>
 
     <div class="wrap legal">

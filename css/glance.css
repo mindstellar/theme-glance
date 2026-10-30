@@ -507,6 +507,16 @@ label, .oe-label { display: block; margin-bottom: var(--sp-1); font-size: var(--
 .glance-menu .wrap::-webkit-scrollbar { display: none; }
 .glance-menu .nav-link { flex: none; }
 .glance-menu .nav-link:first-child { margin-inline-start: calc(-1 * var(--sp-3)); }
+.glance-menu .nav-link:focus-visible { outline-offset: -3px; }
+/* glance.js marks an end with more links past it; that end fades out. Focus scrolls clear of the fade. */
+.glance-menu .wrap { scroll-padding-inline: 3rem; --fade-start: 0px; --fade-end: 0px; }
+.glance-menu .wrap[data-more] { --fade-end: 3rem; }
+.glance-menu .wrap[data-more-start] { --fade-start: 3rem; }
+.glance-menu .wrap:is([data-more], [data-more-start]) {
+    -webkit-mask-image: linear-gradient(to var(--fade-dir, right), transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
+    mask-image: linear-gradient(to var(--fade-dir, right), transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
+}
+[dir="rtl"] .glance-menu .wrap { --fade-dir: left; }
 
 @media (max-width: 52rem) {
     /* Two rows: brand and buttons, then search; even space above, between and below. */

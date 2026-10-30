@@ -259,18 +259,20 @@ function glance_saved_menu(string $id): ?array
     return $items === array() ? null : array('label' => (string) $saved['label'], 'items' => $items);
 }
 
+/** A URL reduced to path and sorted query, so two links to the same page compare equal. */
+function glance_url_key(string $url): string
+{
+    $path = rtrim((string) preg_replace('#/index\.php$#', '', (string) parse_url($url, PHP_URL_PATH)), '/');
+    parse_str((string) parse_url($url, PHP_URL_QUERY), $query);
+    ksort($query);
+
+    return $path . '?' . http_build_query($query);
+}
+
 /** True when a menu link points at the page being shown. */
 function glance_menu_current(string $url): bool
 {
-    $normal = static function (string $u): string {
-        $path = rtrim((string) preg_replace('#/index\.php$#', '', (string) parse_url($u, PHP_URL_PATH)), '/');
-        parse_str((string) parse_url($u, PHP_URL_QUERY), $query);
-        ksort($query);
-
-        return $path . '?' . http_build_query($query);
-    };
-
-    return $normal($url) === $normal((string) ($_SERVER['REQUEST_URI'] ?? '/'));
+    return glance_url_key($url) === glance_url_key((string) ($_SERVER['REQUEST_URI'] ?? '/'));
 }
 
 /** Whether the current static page uses the Full width template. */
