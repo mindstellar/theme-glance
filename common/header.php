@@ -96,6 +96,16 @@ $glance_band     = function_exists('glance_is_account_page') && glance_is_accoun
             <?php } ?>
         </nav>
     </div>
+    <?php $glance_main_menu = glance_saved_menu('main'); ?>
+    <?php if ($glance_main_menu !== null) { ?>
+        <nav class="glance-menu" aria-label="<?php echo osc_esc_html($glance_main_menu['label'] !== '' ? $glance_main_menu['label'] : __('Primary', 'glance')); ?>">
+            <div class="wrap">
+                <?php foreach ($glance_main_menu['items'] as $glance_link) { ?>
+                    <a class="nav-link" href="<?php echo osc_esc_html((string) $glance_link['url']); ?>"<?php echo glance_menu_current((string) $glance_link['url']) ? ' aria-current="page"' : ''; ?>><?php echo osc_esc_html((string) $glance_link['label']); ?></a>
+                <?php } ?>
+            </div>
+        </nav>
+    <?php } ?>
     <?php glance_widget_zone('header', 'header-widgets'); ?>
 </header>
 

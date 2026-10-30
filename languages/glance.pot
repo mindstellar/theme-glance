@@ -357,7 +357,7 @@ msgstr ""
 msgid "A thin strip below the header bar, on every page."
 msgstr ""
 
-#: functions.php:46
+#: functions.php:46 functions.php:231
 msgid "Footer"
 msgstr ""
 
@@ -427,6 +427,18 @@ msgstr ""
 
 #: functions.php:217
 msgid "The page uses the whole width of the content area."
+msgstr ""
+
+#: functions.php:230
+msgid "Header"
+msgstr ""
+
+#: common/header.php:101
+msgid "Primary"
+msgstr ""
+
+#: common/footer.php:42
+msgid "Links"
 msgstr ""
 
 #: inc/account.php:97

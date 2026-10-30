@@ -36,6 +36,18 @@ $glance_note = trim((string) glance_setting('footer_note'));
             </ul>
         </nav>
 
+        <?php $glance_footer_menu = glance_saved_menu('footer'); ?>
+        <?php if ($glance_footer_menu !== null) { ?>
+            <nav aria-labelledby="glance-f-menu">
+                <h2 id="glance-f-menu"><?php echo osc_esc_html($glance_footer_menu['label'] !== '' ? $glance_footer_menu['label'] : __('Links', 'glance')); ?></h2>
+                <ul>
+                    <?php foreach ($glance_footer_menu['items'] as $glance_link) { ?>
+                        <li><a href="<?php echo osc_esc_html((string) $glance_link['url']); ?>"><?php echo osc_esc_html((string) $glance_link['label']); ?></a></li>
+                    <?php } ?>
+                </ul>
+            </nav>
+        <?php } ?>
+
         <?php if (osc_users_enabled()) { ?>
             <nav aria-labelledby="glance-f-account">
                 <h2 id="glance-f-account"><?php _e('Account', 'glance'); ?></h2>
