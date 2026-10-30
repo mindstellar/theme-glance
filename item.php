@@ -41,9 +41,12 @@ $ad_count    = count($ad_photos);
 $ad_cat_url  = $ad_trail ? end($ad_trail)['url'] : '';
 $ad_map      = glance_item_map();
 
-ob_start();
-osc_show_item_comments();
-$ad_comments = glance_fold_comment_form(trim((string) ob_get_clean()));
+$ad_comments = '';
+if (!$ad_unpaid) {
+    ob_start();
+    osc_show_item_comments();
+    $ad_comments = glance_fold_comment_form(trim((string) ob_get_clean()));
+}
 
 /** Contact, Save and Share, or Edit and Delete for the owner. Printed twice: in the side column and as the bottom bar. */
 $ad_bar = static function (string $mod) use ($ad_id, $ad_title, $ad_url, $ad_photos, $ad_block, $ad_owner, $ad_comments, $ad_unpaid, $ad_pay_url): void {
