@@ -25,6 +25,8 @@ $ad_block    = glance_contact_block();
 $ad_owner    = glance_item_is_owner();
 $ad_expired  = osc_item_is_expired();
 $ad_inactive = osc_item_is_inactive();
+$ad_unpaid   = function_exists('osc_item_is_unpaid') && osc_item_is_unpaid();
+$ad_pay_url  = $ad_owner && function_exists('osc_item_pay_url') ? osc_item_pay_url() : '';
 $ad_fields   = glance_item_fields();
 $ad_place    = glance_item_location();
 $ad_posted   = (string) osc_item_pub_date();
@@ -44,11 +46,14 @@ osc_show_item_comments();
 $ad_comments = glance_fold_comment_form(trim((string) ob_get_clean()));
 
 /** Contact, Save and Share, or Edit and Delete for the owner. Printed twice: in the side column and as the bottom bar. */
-$ad_bar = static function (string $mod) use ($ad_id, $ad_title, $ad_url, $ad_photos, $ad_block, $ad_owner, $ad_comments): void {
+$ad_bar = static function (string $mod) use ($ad_id, $ad_title, $ad_url, $ad_photos, $ad_block, $ad_owner, $ad_comments, $ad_unpaid, $ad_pay_url): void {
     ?>
     <div class="ad-bar ad-bar--<?php echo $mod; ?>" role="group" aria-label="<?php echo osc_esc_html(__('Actions', 'glance')); ?>">
         <?php if ($ad_owner) { ?>
-            <a class="btn btn-primary" href="<?php echo osc_esc_html(osc_item_edit_url()); ?>"><?php echo glance_icon('pencil'); ?><?php _e('Edit ad', 'glance'); ?></a>
+            <?php if ($ad_pay_url !== '') { ?>
+                <a class="btn btn-primary" href="<?php echo osc_esc_html($ad_pay_url); ?>"><?php _e('Pay to publish', 'glance'); ?></a>
+            <?php } ?>
+            <a class="btn<?php echo $ad_pay_url === '' ? ' btn-primary' : ''; ?>" href="<?php echo osc_esc_html(osc_item_edit_url()); ?>"><?php echo glance_icon('pencil'); ?><?php _e('Edit ad', 'glance'); ?></a>
             <a class="btn btn-danger" href="<?php echo osc_esc_html(osc_item_delete_url()); ?>" data-confirm="<?php echo osc_esc_html(__('Delete this ad?', 'glance')); ?>"><?php _e('Delete', 'glance'); ?></a>
         <?php } else { ?>
             <?php if ($ad_block === '') { ?>
@@ -65,8 +70,10 @@ $ad_bar = static function (string $mod) use ($ad_id, $ad_title, $ad_url, $ad_pho
                 <a class="btn ad-bar-comment" href="#comments" data-comment-bar aria-label="<?php echo osc_esc_html(__('Leave a comment', 'glance')); ?>"
                    title="<?php echo osc_esc_html(__('Leave a comment', 'glance')); ?>"><?php echo glance_icon('message-circle'); ?><span class="ad-bar-label" aria-hidden="true"><?php _e('Comment', 'glance'); ?></span></a>
             <?php } ?>
+            <?php if (!$ad_unpaid) { ?>
             <button type="button" class="btn btn-icon" data-share data-title="<?php echo osc_esc_html($ad_title); ?>" data-url="<?php echo osc_esc_html($ad_url); ?>"
                 data-copied="<?php echo osc_esc_html(__('Link copied', 'glance')); ?>" hidden aria-label="<?php echo osc_esc_html(__('Share this ad', 'glance')); ?>"><?php echo glance_icon('share-2'); ?></button>
+            <?php } ?>
         <?php } ?>
     </div>
     <?php
@@ -107,7 +114,7 @@ $ad_sidebar = trim((string) ob_get_clean());
              data-view-beacon="<?php echo osc_esc_html(osc_item_view_beacon_url($ad_id)); ?>" aria-labelledby="ad-title"
              data-i18n="<?php echo glance_item_i18n(); ?>">
 
-        <?php if ($ad_expired || $ad_inactive) { ?>
+        <?php if ($ad_expired || ($ad_inactive && !$ad_unpaid)) { ?>
             <p class="ad-notice" role="status"><?php echo glance_icon('triangle-alert'); ?><span><?php
                 echo osc_esc_html($ad_expired
                     ? __('This ad has expired. You can no longer contact the seller.', 'glance')

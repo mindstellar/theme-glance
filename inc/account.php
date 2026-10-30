@@ -505,7 +505,7 @@ function glance_ad_row(bool $full, string $context): void
                     echo glance_ad_action($actions['edit'], 'btn btn-quiet ad-act', 'pencil');
                 }
                 foreach ($extra as $action) {
-                    echo glance_ad_action($action, 'btn btn-quiet ad-act');
+                    echo glance_ad_action($action, empty($action['primary']) ? 'btn btn-quiet ad-act' : 'btn btn-primary ad-act ad-act-primary');
                 }
                 if ($promote) { ?>
                     <details class="ad-menu">

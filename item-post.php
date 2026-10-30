@@ -130,7 +130,7 @@ osc_current_web_theme_path('common/header.php');
 
         <div class="post-submit">
             <a class="btn btn-quiet" href="<?php echo osc_esc_html($glance_back); ?>"><?php _e('Cancel', 'glance'); ?></a>
-            <button class="btn btn-primary post-send" type="submit"><?php echo $glance_edit ? osc_esc_html(__('Save changes', 'glance')) : osc_esc_html(__('Publish ad', 'glance')); ?></button>
+            <button class="btn btn-primary post-send" type="submit"><?php echo $glance_edit ? osc_esc_html(__('Save changes', 'glance')) : osc_esc_html(function_exists('osc_item_post_submit_label') ? osc_item_post_submit_label() : __('Publish ad', 'glance')); ?></button>
         </div>
     </form>
 </div>

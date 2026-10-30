@@ -885,7 +885,11 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: item.php:51
+#: item.php:54
+msgid "Pay to publish"
+msgstr ""
+
+#: item.php:56
 msgid "Edit ad"
 msgstr ""
 

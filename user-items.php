@@ -48,12 +48,26 @@ osc_run_hook('account_page_before', 'user-items');
     <?php } ?>
 </div>
 
-<?php if ($glance_allow !== null && !osc_user_can_publish()) { ?>
-    <p class="acct-note"><?php echo osc_esc_html(osc_listing_limit_message()); ?></p>
-<?php }
+<?php
+// The limit, the next ad's price and paused bumps as one notice; core 7.1 prints the price lines.
+$glance_note = '';
+if ($glance_allow !== null && !osc_user_can_publish()) {
+    if (function_exists('osc_item_pay_url')) {
+        $slotInline = true;
+        ob_start();
+        require ABS_PATH . 'oc-includes/osclass/gui/billing/slot-prompt.php';
+        $glance_note = trim((string) ob_get_clean());
+    }
+    if ($glance_note === '') {
+        $glance_note = '<p>' . osc_esc_html(osc_listing_limit_message()) . '</p>';
+    }
+}
 $glance_paused = function_exists('osc_billing_bump_paused_message') ? osc_billing_bump_paused_message() : '';
-if ($glance_paused !== '') { ?>
-    <p class="acct-note"><?php echo osc_esc_html($glance_paused); ?></p>
+if ($glance_paused !== '') {
+    $glance_note .= '<p>' . osc_esc_html($glance_paused) . '</p>';
+}
+if ($glance_note !== '') { ?>
+    <div class="acct-note acct-note--box" role="note"><?php echo $glance_note; ?></div>
 <?php } ?>
 
 <div class="acct-empty" data-ads-empty<?php echo osc_count_items() > 0 ? ' hidden' : ''; ?>>

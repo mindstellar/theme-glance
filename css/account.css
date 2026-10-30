@@ -1224,3 +1224,46 @@ body:has(.oe-messenger) .oe-page { padding-block: var(--sp-4); }
 .oe-page .oe-account-main > .osc-user-delete-account { max-inline-size: 26rem; }
 .oe-page .oe-account-main > .osc-user-delete-account > .oe-actions { padding-block-start: 0; border: 0; margin-block-start: var(--sp-4); }
 .oe-page .osc-user-delete-account .oe-actions a { color: var(--muted); }
+
+/* ---- Pay step: the amount leads, bank details copy in one click, the deadline is a callout ---- */
+.oe-bill-amount { margin: 0 0 var(--sp-4); }
+.oe-bill-amount > p { margin: 0; }
+.oe-bill-amount-label { color: var(--muted); font-size: var(--fs-s); font-weight: 600; }
+.oe-bill-amount-figure {
+    margin-block-start: var(--sp-1) !important;
+    font-size: var(--fs-xl); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    font-variant-numeric: tabular-nums lining-nums; overflow-wrap: anywhere;
+}
+.oe-bill-amount .oe-muted { margin-block-start: var(--sp-2) !important; }
+.oe-bill-instructions { white-space: normal; line-height: 2; overflow-wrap: anywhere; }
+.oe-callout {
+    margin: var(--sp-4) 0 0; padding: var(--sp-3) var(--sp-4); color: var(--ink); font-size: var(--fs-s);
+    background: light-dark(color-mix(in oklab, var(--warn) 8%, var(--surface)), color-mix(in oklab, var(--warn) 14%, var(--surface)));
+    border: 1px solid color-mix(in oklab, var(--warn) 40%, var(--line)); border-radius: var(--radius);
+}
+.oe-copy { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); max-inline-size: 100%; }
+.oe-copy-value {
+    padding: 0.0625rem var(--sp-2); color: var(--ink); font: 500 0.9375em/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--sunk); border: 1px solid var(--line); border-radius: var(--radius-s); overflow-wrap: anywhere; user-select: all;
+}
+.oe-page .oe-doc button.oe-copy-btn[type] {
+    min-height: 0; padding: 0.125rem var(--sp-2); color: var(--accent); font: 600 var(--fs-xs)/1.5 var(--font);
+    text-decoration: none; border: 1px solid var(--line); border-radius: var(--radius-s);
+}
+.oe-page .oe-doc button.oe-copy-btn[type]:hover { background: var(--accent-tint); text-decoration: none; }
+.oe-copy-btn[hidden] { display: none !important; }
+.oe-bill-delete-form { display: block; margin-block-start: var(--sp-4); }
+.oe-page .oe-doc button.oe-bill-delete[type] { padding-inline: 0; color: var(--muted); font-size: var(--fs-s); font-weight: 500; }
+.oe-page .oe-doc button.oe-bill-delete[type]:hover { color: var(--danger); }
+
+/* ---- Your ads: one notice for the limit, the next ad's price and paused bumps ---- */
+.acct-note--box {
+    padding: var(--sp-3) var(--sp-4); color: var(--ink);
+    background: light-dark(color-mix(in oklab, var(--warn) 8%, var(--surface)), color-mix(in oklab, var(--warn) 14%, var(--surface)));
+    border: 1px solid color-mix(in oklab, var(--warn) 40%, var(--line)); border-radius: var(--radius);
+}
+.acct-note--box > p, .oe-page .acct-note--box > .oe-meta { display: block; margin: 0; color: inherit; font-size: var(--fs-s); }
+.acct-note--box > p + p { margin-block-start: var(--sp-1); }
+.acct-note--box .oe-actions { margin-block-start: var(--sp-2); }
+.oe-doc .ad-act.ad-act-primary, .ad-act.ad-act-primary { color: var(--accent-ink); white-space: nowrap; }
+.ad-act.ad-act-primary .gi { color: currentColor; }
