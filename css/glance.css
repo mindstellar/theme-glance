@@ -520,6 +520,29 @@ label, .oe-label { display: block; margin-bottom: var(--sp-1); font-size: var(--
     mask-image: linear-gradient(to var(--fade-dir, right), transparent, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent);
 }
 [dir="rtl"] .glance-menu .wrap { --fade-dir: left; }
+/* Arrow buttons sit over each faded end, inside the page width. */
+.glance-menu { position: relative; --menu-edge: max(0px, (100% - var(--wrap)) / 2); }
+.menu-scroll {
+    position: absolute;
+    top: calc((var(--tap) - 2rem) / 2);
+    inset-inline-start: calc(var(--menu-edge) + var(--sp-1));
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: var(--shadow-lift);
+    cursor: pointer;
+}
+.menu-scroll[data-menu-scroll="1"] { inset-inline-start: auto; inset-inline-end: calc(var(--menu-edge) + var(--sp-1)); }
+.menu-scroll[hidden] { display: none; }
+.menu-scroll:hover { background: var(--sunk); }
+.menu-scroll svg { width: 1.125rem; height: 1.125rem; }
+[dir="rtl"] .menu-scroll svg { transform: scaleX(-1); }
 
 @media (max-width: 52rem) {
     /* Two rows: brand and buttons, then search; even space above, between and below. */
@@ -532,6 +555,9 @@ label, .oe-label { display: block; margin-bottom: var(--sp-1); font-size: var(--
         padding-block: var(--sp-2);
     }
     .header-search { grid-column: 1 / -1; grid-row: 2; max-width: none; }
+    /* A long site name shortens with an ellipsis instead of running into the icons. */
+    .brand { min-width: 0; }
+    .brand span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
     .nav-label, .oe-msg-link .oe-msg-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
     .nav-post { width: var(--tap); padding: 0; margin-inline-start: var(--sp-1); }
 }

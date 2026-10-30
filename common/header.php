@@ -104,6 +104,9 @@ $glance_band     = function_exists('glance_is_account_page') && glance_is_accoun
                     <a class="nav-link" href="<?php echo osc_esc_html((string) $glance_link['url']); ?>"<?php echo glance_menu_current((string) $glance_link['url']) ? ' aria-current="page"' : ''; ?>><?php echo osc_esc_html((string) $glance_link['label']); ?></a>
                 <?php } ?>
             </div>
+            <?php // Mouse controls for a row wider than the screen; the keyboard reaches every link with Tab. ?>
+            <button class="menu-scroll" type="button" data-menu-scroll="-1" tabindex="-1" aria-hidden="true" hidden><?php echo glance_icon('chevron-left'); ?></button>
+            <button class="menu-scroll" type="button" data-menu-scroll="1" tabindex="-1" aria-hidden="true" hidden><?php echo glance_icon('chevron-right'); ?></button>
         </nav>
     <?php } ?>
     <?php glance_widget_zone('header', 'header-widgets'); ?>

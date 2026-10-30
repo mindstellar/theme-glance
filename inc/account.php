@@ -65,8 +65,14 @@ function glance_account_menu(array $items): array
         'opt_alerts' => __('Search alerts', 'glance'),
     );
 
+    // Core marks Credits current on the pay step, which is about one ad, so Credits gets an extra class there and no entry is marked.
+    $pay_step = osc_get_osclass_location() === 'billing' && osc_get_osclass_section() === 'publish';
+
     foreach ($items as $i => $item) {
         $class = is_array($item) ? (string) ($item['class'] ?? '') : '';
+        if ($pay_step && $class === 'opt_billing_wallet') {
+            $items[$i]['class'] = 'opt_billing_wallet glance-pay-step';
+        }
         // The public page has no account frame, so a nav entry would strand the member there.
         if ($class === 'opt_publicprofile') {
             unset($items[$i]);

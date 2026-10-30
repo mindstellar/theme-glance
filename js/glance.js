@@ -193,11 +193,21 @@
             const s = strip.getBoundingClientRect();
             strip.scrollLeft += (a.left - s.left) - (s.width - a.width) / 2;
         }
+        const back = strip.parentElement.querySelector('[data-menu-scroll="-1"]');
+        const next = strip.parentElement.querySelector('[data-menu-scroll="1"]');
+        const rtl = getComputedStyle(strip).direction === 'rtl';
         const mark = () => {
             const left = Math.abs(strip.scrollLeft);
-            strip.toggleAttribute('data-more', strip.scrollWidth - strip.clientWidth - left > 4);
+            const more = strip.scrollWidth - strip.clientWidth - left > 4;
+            strip.toggleAttribute('data-more', more);
             strip.toggleAttribute('data-more-start', left > 4);
+            if (next) next.hidden = !more;
+            if (back) back.hidden = left <= 4;
         };
+        [back, next].forEach((btn) => btn?.addEventListener('click', () => {
+            const step = Number(btn.dataset.menuScroll) * strip.clientWidth * 0.7;
+            strip.scrollBy({ left: rtl ? -step : step, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        }));
         mark();
         strip.addEventListener('scroll', mark, { passive: true });
         window.addEventListener('resize', mark);

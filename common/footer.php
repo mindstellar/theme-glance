@@ -16,15 +16,18 @@ $glance_taken = array();
 foreach ($glance_footer_menu['items'] ?? array() as $glance_link) {
     $glance_taken[glance_url_key((string) $glance_link['url'])] = true;
 }
-$glance_link_shown = static fn(string $url): bool => !isset($glance_taken[glance_url_key($url)]);
+// $plain is the same page without friendly URLs, so "/contact" and "?page=contact" count as one.
+$glance_link_shown = static fn(string $url, string $plain = ''): bool => !isset($glance_taken[glance_url_key($url)])
+    && ($plain === '' || !isset($glance_taken[glance_url_key($plain)]));
+$glance_contact_plain = osc_base_url() . 'index.php?page=contact';
 osc_reset_static_pages();
 $glance_pages = array();
 while (osc_has_static_pages()) {
-    if ($glance_link_shown(osc_static_page_url())) {
+    if ($glance_link_shown(osc_static_page_url(), osc_base_url() . 'index.php?page=page&id=' . osc_static_page_id())) {
         $glance_pages[] = array(osc_static_page_url(), osc_static_page_title());
     }
 }
-$glance_contact_shown = $glance_link_shown(osc_contact_url());
+$glance_contact_shown = $glance_link_shown(osc_contact_url(), $glance_contact_plain);
 ?>
 </main>
 
