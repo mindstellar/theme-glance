@@ -14,7 +14,7 @@ Theme URI: https://github.com/mindstellar/theme-glance
 Description: Glance — a classifieds theme for comparing. Scan a list of ads and read each one in a side panel without losing your place.
 Version: 1.2.0
 Author: Mindstellar
-Author URI: https://github.com/mindstellar
+Author URI: https://mindstellar.com
 Widgets: header, footer
 Theme update URI: glance
 Requires Shopclass: 7.0.0
