@@ -223,7 +223,7 @@ main { flex: 1 0 auto; }
 .btn-save[aria-pressed="true"] .gi { fill: currentColor; }
 
 input[type="text"], input[type="search"], input[type="email"], input[type="password"],
-input[type="tel"], input[type="url"], input[type="number"], input[type="date"],
+input[type="tel"], input[type="url"], input[type="number"], input[type="date"], input[type="time"],
 select, textarea, .oe-input {
     width: 100%;
     min-height: var(--tap);
