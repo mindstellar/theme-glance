@@ -136,6 +136,8 @@ p { margin: 0 0 var(--sp-4); text-wrap: pretty; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em; text-decoration-color: color-mix(in oklab, currentColor 40%, transparent); }
 a:hover { text-decoration-color: currentColor; }
 .prose a, .oe-doc a { color: var(--accent); }
+.prose a.osc-button, .oe-doc a.osc-button { color: var(--ink); }
+.prose a.osc-button--primary, .oe-doc a.osc-button--primary { color: var(--accent-ink); }
 
 img, svg, video { display: block; max-width: 100%; }
 img { height: auto; }
@@ -182,7 +184,7 @@ main { flex: 1 0 auto; }
 
 /* ---- Controls ---------------------------------------------------------- */
 
-.btn, .oe-btn, .oe-actions a.oe-secondary {
+.btn, .oe-btn, .oe-actions a.oe-secondary, .osc-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -199,16 +201,16 @@ main { flex: 1 0 auto; }
     cursor: pointer;
     transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
-.btn:hover, .oe-btn:hover, .oe-actions a.oe-secondary:hover { border-color: var(--ink); }
+.btn:hover, .oe-btn:hover, .oe-actions a.oe-secondary:hover, .osc-button:hover { border-color: var(--ink); }
 .btn:disabled, .oe-btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; }
 
-.btn-primary, .oe-btn-primary,
+.btn-primary, .oe-btn-primary, .osc-button--primary,
 .oe-btn:not(.oe-secondary, .oe-btn-danger) {
     background: var(--accent);
     border-color: var(--accent);
     color: var(--accent-ink);
 }
-.btn-primary:hover, .oe-btn-primary:hover,
+.btn-primary:hover, .oe-btn-primary:hover, .osc-button--primary:hover,
 .oe-btn:not(.oe-secondary, .oe-btn-danger):hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
 .btn-quiet { border-color: transparent; background: transparent; }
@@ -785,3 +787,20 @@ th { font-size: var(--fs-xs); font-weight: 600; color: var(--muted); }
 .oe-alert-form .oe-field { margin: 0; }
 .oe-alert-form .oe-actions { margin: 0; }
 
+/* Page builder layout blocks (core page-blocks.css lays them out; this is Glance's look). */
+.osc-heading > h2 { font-size: var(--fs-xxl); margin: 0 0 var(--sp-2); }
+.osc-heading > h3 { font-size: var(--fs-xl); margin: 0; }
+.osc-heading > p { color: var(--muted); font-size: var(--fs-l); max-width: 56ch; margin-block: 0; }
+.osc-heading--center > p { margin-inline: auto; }
+.osc-rich-text > * + * { margin-top: 1em; }
+.osc-media-text > figure { border-radius: var(--radius-l); overflow: hidden; background: var(--sunk); }
+.osc-media-text .osc-rich-text :is(h2, h3) { font-size: var(--fs-xl); margin: 0 0 var(--sp-2); }
+.osc-media-text .osc-button-row { margin-top: var(--sp-4); }
+.osc-columns .osc-rich-text { padding-top: var(--sp-3); border-top: 2px solid var(--line-strong); }
+@media (max-width: 639.98px) {
+    .osc-button-row .osc-button { flex: 1 1 100%; }
+}
+
+/* A built page uses the full width; its text blocks keep the reading measure. */
+.prose:has(.page-builder) { max-width: none; }
+.page-builder .osc-rich-text { max-width: 70ch; }
