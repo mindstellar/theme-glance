@@ -17,7 +17,7 @@ osc_current_web_theme_path('common/header.php');
 ?>
 <div class="wrap">
     <article class="glance-page">
-        <h1><?php echo osc_esc_html(osc_static_page_title()); ?></h1>
+        <h1<?php echo function_exists('osc_static_page_title_hidden') && osc_static_page_title_hidden() ? ' class="visually-hidden"' : ''; ?>><?php echo osc_esc_html(osc_static_page_title()); ?></h1>
         <div class="prose"><?php echo osc_static_page_text(); ?></div>
         <?php if ($glance_stamp !== false && $glance_stamp > 0) { ?>
             <p class="glance-page-meta"><?php printf(
