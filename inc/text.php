@@ -15,6 +15,12 @@ if (!defined('ABS_PATH')) {
  */
 function glance_text_setting(string $name, string $default = ''): string
 {
+    // Core 7.0 has no osc_settings_text_value().
+    if (function_exists('osc_settings_text_value')) {
+        $value = osc_settings_text_value($name, 'glance', osc_current_user_locale());
+
+        return $value !== '' ? $value : $default;
+    }
     foreach (array(osc_current_user_locale(), osc_language()) as $code) {
         $value = (string) osc_get_preference($name . $code, 'glance');
         if ($value !== '') {
