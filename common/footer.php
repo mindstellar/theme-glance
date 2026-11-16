@@ -9,7 +9,7 @@ if (!defined('ABS_PATH')) {
     exit('Direct access is not allowed.');
 }
 
-$glance_note = trim((string) glance_setting('footer_note'));
+$glance_note = trim((string) glance_text_setting('footer_note'));
 // A link the saved footer menu already shows is not repeated in the other columns.
 $glance_footer_menu = glance_saved_menu('footer');
 $glance_taken = array();

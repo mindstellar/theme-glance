@@ -18,6 +18,7 @@ define('GLANCE_DEFAULT_ACCENT', '#2f5bff');
 
 require_once GLANCE_DIR . 'inc/icons.php';
 require_once GLANCE_DIR . 'inc/helpers.php';
+require_once GLANCE_DIR . 'inc/text.php';
 
 foreach (array('list', 'item', 'account', 'post') as $glance_inc) {
     if (is_file(GLANCE_DIR . 'inc/' . $glance_inc . '.php')) {
@@ -66,6 +67,7 @@ function glance_init(): void
             ), __('How tightly the ad list is packed on search and home.', 'glance'))
                 ->default('comfortable')
             ->text('footer_note', __('Footer note', 'glance'), __('One short line under the site name in the footer. Leave empty to hide it.', 'glance'))
+                ->translate()
             ->checkbox('home_map', __('Home page map', 'glance'), $map
                 ? __('Uses the Map search plugin. A map of listings above the latest ads. It shows only when distance search is on and listings have a map point.', 'glance')
                 : __('Needs the Map search plugin. Install and activate it under Plugins to use this.', 'glance'))
